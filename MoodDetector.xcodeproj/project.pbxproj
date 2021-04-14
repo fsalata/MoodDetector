@@ -12,6 +12,11 @@
 		001CA03D262742B200C0EB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03C262742B200C0EB29 /* Assets.xcassets */; };
 		001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03E262742B200C0EB29 /* LaunchScreen.storyboard */; };
 		001CA04B262742B200C0EB29 /* MoodDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA04A262742B200C0EB29 /* MoodDetectorTests.swift */; };
+		0062BDB22627462500F58F1B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDB12627462500F58F1B /* Coordinator.swift */; };
+		0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDB72627466C00F58F1B /* SearchViewController.swift */; };
+		0062BDBA2627466C00F58F1B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0062BDB82627466C00F58F1B /* SearchViewController.xib */; };
+		0062BDBE262746AE00F58F1B /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDBD262746AE00F58F1B /* SearchCoordinator.swift */; };
+		0062BDC22627473500F58F1B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDC12627473500F58F1B /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,11 @@
 		001CA046262742B200C0EB29 /* MoodDetectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodDetectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		001CA04A262742B200C0EB29 /* MoodDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDetectorTests.swift; sourceTree = "<group>"; };
 		001CA04C262742B200C0EB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0062BDB12627462500F58F1B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0062BDB72627466C00F58F1B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0062BDB82627466C00F58F1B /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		0062BDBD262746AE00F58F1B /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		0062BDC12627473500F58F1B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,10 @@
 		001CA032262742B100C0EB29 /* MoodDetector */ = {
 			isa = PBXGroup;
 			children = (
+				0062BDA8262745DE00F58F1B /* Coordinator */,
+				0062BDAB262745F600F58F1B /* Home */,
+				0062BDA9262745E500F58F1B /* Common */,
+				0062BDAA262745EB00F58F1B /* Extensions */,
 				001CA033262742B100C0EB29 /* AppDelegate.swift */,
 				001CA037262742B100C0EB29 /* ViewController.swift */,
 				001CA03C262742B200C0EB29 /* Assets.xcassets */,
@@ -91,6 +105,79 @@
 				001CA04C262742B200C0EB29 /* Info.plist */,
 			);
 			path = MoodDetectorTests;
+			sourceTree = "<group>";
+		};
+		0062BDA8262745DE00F58F1B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0062BDB12627462500F58F1B /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0062BDA9262745E500F58F1B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0062BDAA262745EB00F58F1B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0062BDAB262745F600F58F1B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0062BDB02627461300F58F1B /* Service */,
+				0062BDAF2627460F00F58F1B /* Model */,
+				0062BDAE2627460A00F58F1B /* Coordinator */,
+				0062BDAD2627460400F58F1B /* ViewModel */,
+				0062BDAC262745FF00F58F1B /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0062BDAC262745FF00F58F1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0062BDB72627466C00F58F1B /* SearchViewController.swift */,
+				0062BDB82627466C00F58F1B /* SearchViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0062BDAD2627460400F58F1B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0062BDC12627473500F58F1B /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0062BDAE2627460A00F58F1B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0062BDBD262746AE00F58F1B /* SearchCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0062BDAF2627460F00F58F1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0062BDB02627461300F58F1B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +262,7 @@
 			files = (
 				001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */,
 				001CA03D262742B200C0EB29 /* Assets.xcassets in Resources */,
+				0062BDBA2627466C00F58F1B /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0062BDC22627473500F58F1B /* SearchViewModel.swift in Sources */,
 				001CA038262742B100C0EB29 /* ViewController.swift in Sources */,
+				0062BDBE262746AE00F58F1B /* SearchCoordinator.swift in Sources */,
 				001CA034262742B100C0EB29 /* AppDelegate.swift in Sources */,
+				0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */,
+				0062BDB22627462500F58F1B /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
