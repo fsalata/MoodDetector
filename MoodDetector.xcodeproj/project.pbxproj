@@ -27,6 +27,15 @@
 		0062BDD82627483A00F58F1B /* ServiceTargetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDCE2627483A00F58F1B /* ServiceTargetProtocol.swift */; };
 		0062BDD92627483A00F58F1B /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDCF2627483A00F58F1B /* APIProtocol.swift */; };
 		0062BDDA2627483A00F58F1B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDD02627483A00F58F1B /* URLSessionProtocol.swift */; };
+		008336B926278C5F004B38E6 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336B826278C5F004B38E6 /* APIKeys.swift */; };
+		008336BF26278CD1004B38E6 /* SearchServiceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336BE26278CD1004B38E6 /* SearchServiceTarget.swift */; };
+		008336C526278E2E004B38E6 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336C426278E2D004B38E6 /* SearchService.swift */; };
+		008336C926278F6C004B38E6 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336C826278F6C004B38E6 /* Tweets.swift */; };
+		008336CD26279098004B38E6 /* AppCoordiantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336CC26279098004B38E6 /* AppCoordiantor.swift */; };
+		008336D826279269004B38E6 /* SentimentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336D726279269004B38E6 /* SentimentResult.swift */; };
+		008336DE262792D7004B38E6 /* MoodServiceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336DD262792D7004B38E6 /* MoodServiceTarget.swift */; };
+		008336E426279336004B38E6 /* SentimentPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336E326279336004B38E6 /* SentimentPayload.swift */; };
+		008336EC2627954B004B38E6 /* MoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336EB2627954B004B38E6 /* MoodService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +73,15 @@
 		0062BDCE2627483A00F58F1B /* ServiceTargetProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTargetProtocol.swift; sourceTree = "<group>"; };
 		0062BDCF2627483A00F58F1B /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		0062BDD02627483A00F58F1B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		008336B826278C5F004B38E6 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		008336BE26278CD1004B38E6 /* SearchServiceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTarget.swift; sourceTree = "<group>"; };
+		008336C426278E2D004B38E6 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		008336C826278F6C004B38E6 /* Tweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
+		008336CC26279098004B38E6 /* AppCoordiantor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordiantor.swift; sourceTree = "<group>"; };
+		008336D726279269004B38E6 /* SentimentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentResult.swift; sourceTree = "<group>"; };
+		008336DD262792D7004B38E6 /* MoodServiceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodServiceTarget.swift; sourceTree = "<group>"; };
+		008336E326279336004B38E6 /* SentimentPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentPayload.swift; sourceTree = "<group>"; };
+		008336EB2627954B004B38E6 /* MoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +125,9 @@
 			children = (
 				0062BDC52627483A00F58F1B /* Network */,
 				0062BDA8262745DE00F58F1B /* Coordinator */,
-				0062BDAB262745F600F58F1B /* Home */,
+				0062BDAB262745F600F58F1B /* Search */,
+				008336D0262791E4004B38E6 /* TweetsList */,
+				008336D62627923E004B38E6 /* MoodResult */,
 				0062BDA9262745E500F58F1B /* Common */,
 				0062BDAA262745EB00F58F1B /* Extensions */,
 				001CA033262742B100C0EB29 /* AppDelegate.swift */,
@@ -132,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				0062BDB12627462500F58F1B /* Coordinator.swift */,
+				008336CC26279098004B38E6 /* AppCoordiantor.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -150,7 +171,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		0062BDAB262745F600F58F1B /* Home */ = {
+		0062BDAB262745F600F58F1B /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				0062BDB02627461300F58F1B /* Service */,
@@ -159,7 +180,7 @@
 				0062BDAD2627460400F58F1B /* ViewModel */,
 				0062BDAC262745FF00F58F1B /* Views */,
 			);
-			path = Home;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		0062BDAC262745FF00F58F1B /* Views */ = {
@@ -190,6 +211,7 @@
 		0062BDAF2627460F00F58F1B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				008336C826278F6C004B38E6 /* Tweets.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +219,8 @@
 		0062BDB02627461300F58F1B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				008336BE26278CD1004B38E6 /* SearchServiceTarget.swift */,
+				008336C426278E2D004B38E6 /* SearchService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -204,10 +228,10 @@
 		0062BDC52627483A00F58F1B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				008336B726278C3A004B38E6 /* API */,
 				0062BDC62627483A00F58F1B /* APIError.swift */,
 				0062BDC72627483A00F58F1B /* APIClient.swift */,
 				0062BDCA2627483A00F58F1B /* RequestMethod.swift */,
-				0062BDCB2627483A00F58F1B /* API.swift */,
 				0062BDCC2627483A00F58F1B /* URL+Extensions.swift */,
 				0062BDC92627483A00F58F1B /* URLRequest+Extensions.swift */,
 				0062BDC82627483A00F58F1B /* Publisher+Extensions.swift */,
@@ -224,6 +248,73 @@
 				0062BDD02627483A00F58F1B /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		008336B726278C3A004B38E6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				0062BDCB2627483A00F58F1B /* API.swift */,
+				008336B826278C5F004B38E6 /* APIKeys.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		008336D0262791E4004B38E6 /* TweetsList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TweetsList;
+			sourceTree = "<group>";
+		};
+		008336D1262791ED004B38E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		008336D2262791F1004B38E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		008336D3262791F6004B38E6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		008336D4262791FE004B38E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				008336E326279336004B38E6 /* SentimentPayload.swift */,
+				008336D726279269004B38E6 /* SentimentResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		008336D526279203004B38E6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				008336DD262792D7004B38E6 /* MoodServiceTarget.swift */,
+				008336EB2627954B004B38E6 /* MoodService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		008336D62627923E004B38E6 /* MoodResult */ = {
+			isa = PBXGroup;
+			children = (
+				008336D526279203004B38E6 /* Service */,
+				008336D4262791FE004B38E6 /* Model */,
+				008336D3262791F6004B38E6 /* Coordinator */,
+				008336D2262791F1004B38E6 /* ViewModel */,
+				008336D1262791ED004B38E6 /* Views */,
+			);
+			path = MoodResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,20 +417,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				008336E426279336004B38E6 /* SentimentPayload.swift in Sources */,
 				0062BDD82627483A00F58F1B /* ServiceTargetProtocol.swift in Sources */,
+				008336DE262792D7004B38E6 /* MoodServiceTarget.swift in Sources */,
 				0062BDC22627473500F58F1B /* SearchViewModel.swift in Sources */,
 				001CA038262742B100C0EB29 /* ViewController.swift in Sources */,
+				008336C926278F6C004B38E6 /* Tweets.swift in Sources */,
 				0062BDBE262746AE00F58F1B /* SearchCoordinator.swift in Sources */,
 				0062BDD42627483A00F58F1B /* URLRequest+Extensions.swift in Sources */,
 				0062BDD72627483A00F58F1B /* URL+Extensions.swift in Sources */,
 				0062BDD22627483A00F58F1B /* APIClient.swift in Sources */,
+				008336B926278C5F004B38E6 /* APIKeys.swift in Sources */,
 				0062BDD52627483A00F58F1B /* RequestMethod.swift in Sources */,
+				008336BF26278CD1004B38E6 /* SearchServiceTarget.swift in Sources */,
 				001CA034262742B100C0EB29 /* AppDelegate.swift in Sources */,
 				0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */,
 				0062BDB22627462500F58F1B /* Coordinator.swift in Sources */,
+				008336D826279269004B38E6 /* SentimentResult.swift in Sources */,
+				008336C526278E2E004B38E6 /* SearchService.swift in Sources */,
 				0062BDD32627483A00F58F1B /* Publisher+Extensions.swift in Sources */,
+				008336CD26279098004B38E6 /* AppCoordiantor.swift in Sources */,
 				0062BDDA2627483A00F58F1B /* URLSessionProtocol.swift in Sources */,
 				0062BDD62627483A00F58F1B /* API.swift in Sources */,
+				008336EC2627954B004B38E6 /* MoodService.swift in Sources */,
 				0062BDD92627483A00F58F1B /* APIProtocol.swift in Sources */,
 				0062BDD12627483A00F58F1B /* APIError.swift in Sources */,
 			);

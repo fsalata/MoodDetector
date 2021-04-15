@@ -21,7 +21,7 @@ extension URLRequest {
         
         switch target.method {
         case .POST, .PUT:
-            httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+            httpBody = target.body
         default:
             break
         }

@@ -14,13 +14,8 @@ extension URL {
         var components = URLComponents(string: baseUrl)!
         components.path += path
         
-        switch method {
-        case .GET, .DELETE:
-            components.queryItems = parameters?.map {
-                URLQueryItem(name: $0.key, value: String(describing: $0.value))
-            }
-        default:
-            break
+        components.queryItems = parameters?.map {
+            URLQueryItem(name: $0.key, value: String(describing: $0.value))
         }
         
         guard let url = components.url else { return nil }

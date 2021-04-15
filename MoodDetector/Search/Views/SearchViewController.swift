@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 class SearchViewController: UIViewController {
     
     var coordinator: SearchCoordinator
     var viewModel: SearchViewModel
+    
+    var subscriptions = Set<AnyCancellable>()
     
     init(coordinator: SearchCoordinator, viewModel: SearchViewModel) {
         self.coordinator = coordinator
@@ -27,7 +30,6 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .green
     }
 
 }
