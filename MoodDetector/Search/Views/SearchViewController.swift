@@ -9,6 +9,9 @@ import UIKit
 import Combine
 
 class SearchViewController: UIViewController {
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var searchButton: RoundButton!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     
     var coordinator: SearchCoordinator
     var viewModel: SearchViewModel
@@ -30,6 +33,31 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
     }
 
+    private func setupView() {
+        navigationItem.backButtonDisplayMode = .minimal
+        
+        usernameTextField.delegate = self
+    }
+    
+    @IBAction func search(_ sender: Any) {
+        guard let username = usernameTextField.text,
+              !username.isEmpty else {
+            errorMessageLabel.isHidden = false
+            return
+        }
+        
+        if let username = usernameTextField.text,
+           !username.isEmpty {
+            coordinator.presentTweetResult(for: username)
+        }
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        errorMessageLabel.isHidden = true
+    }
 }

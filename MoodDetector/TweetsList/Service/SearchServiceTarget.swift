@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum SearchServiceTarget: ServiceTargetProtocol {
+enum TweetListServiceTarget: ServiceTargetProtocol {
     case search(username: String)
 }
 
-extension SearchServiceTarget {
+extension TweetListServiceTarget {
     var path: String {
         "/2/tweets/search/recent"
     }

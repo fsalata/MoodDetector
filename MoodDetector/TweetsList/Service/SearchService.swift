@@ -12,6 +12,6 @@ final class SearchService {
     let client = APIClient(api: TwitterAPI())
     
     func fetchUserRecentTweets(username: String) -> AnyPublisher<SearchResult, APIError> {
-        return client.request(target: SearchServiceTarget.search(username: username))
+        return client.request(target: TweetListServiceTarget.search(username: username))
     }
 }

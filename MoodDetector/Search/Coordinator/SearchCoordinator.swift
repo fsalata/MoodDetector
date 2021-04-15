@@ -20,3 +20,10 @@ final class SearchCoordinator: Coordinator {
         navigationController.pushViewController(searchViewController, animated: false)
     }
 }
+
+extension SearchCoordinator {
+    func presentTweetResult(for username: String) {
+        let tweetListCoordinator = TweetListCoordinator(username: username, navigationController: navigationController)
+        tweetListCoordinator.start()
+    }
+}

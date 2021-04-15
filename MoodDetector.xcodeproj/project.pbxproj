@@ -36,6 +36,14 @@
 		008336DE262792D7004B38E6 /* MoodServiceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336DD262792D7004B38E6 /* MoodServiceTarget.swift */; };
 		008336E426279336004B38E6 /* SentimentPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336E326279336004B38E6 /* SentimentPayload.swift */; };
 		008336EC2627954B004B38E6 /* MoodService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336EB2627954B004B38E6 /* MoodService.swift */; };
+		008336FA262867FF004B38E6 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336F9262867FF004B38E6 /* RoundButton.swift */; };
+		00833703262869A4004B38E6 /* TweetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00833702262869A4004B38E6 /* TweetListViewModel.swift */; };
+		0083370726286AD2004B38E6 /* TweetListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0083370626286AD2004B38E6 /* TweetListCoordinator.swift */; };
+		0083370C26286DC9004B38E6 /* TweetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0083370A26286DC9004B38E6 /* TweetListViewController.swift */; };
+		0083370D26286DC9004B38E6 /* TweetListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0083370B26286DC9004B38E6 /* TweetListViewController.xib */; };
+		0088180026287D8100B1C1CD /* TweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008817FE26287D8100B1C1CD /* TweetsTableViewCell.swift */; };
+		0088180126287D8100B1C1CD /* TweetsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008817FF26287D8100B1C1CD /* TweetsTableViewCell.xib */; };
+		0088180B26287E5500B1C1CD /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088180A26287E5500B1C1CD /* UITableView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +90,14 @@
 		008336DD262792D7004B38E6 /* MoodServiceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodServiceTarget.swift; sourceTree = "<group>"; };
 		008336E326279336004B38E6 /* SentimentPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentPayload.swift; sourceTree = "<group>"; };
 		008336EB2627954B004B38E6 /* MoodService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodService.swift; sourceTree = "<group>"; };
+		008336F9262867FF004B38E6 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		00833702262869A4004B38E6 /* TweetListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListViewModel.swift; sourceTree = "<group>"; };
+		0083370626286AD2004B38E6 /* TweetListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListCoordinator.swift; sourceTree = "<group>"; };
+		0083370A26286DC9004B38E6 /* TweetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListViewController.swift; sourceTree = "<group>"; };
+		0083370B26286DC9004B38E6 /* TweetListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetListViewController.xib; sourceTree = "<group>"; };
+		008817FE26287D8100B1C1CD /* TweetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsTableViewCell.swift; sourceTree = "<group>"; };
+		008817FF26287D8100B1C1CD /* TweetsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetsTableViewCell.xib; sourceTree = "<group>"; };
+		0088180A26287E5500B1C1CD /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +176,7 @@
 		0062BDA9262745E500F58F1B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				008336F9262867FF004B38E6 /* RoundButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 		0062BDAA262745EB00F58F1B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0088180A26287E5500B1C1CD /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -174,8 +192,6 @@
 		0062BDAB262745F600F58F1B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				0062BDB02627461300F58F1B /* Service */,
-				0062BDAF2627460F00F58F1B /* Model */,
 				0062BDAE2627460A00F58F1B /* Coordinator */,
 				0062BDAD2627460400F58F1B /* ViewModel */,
 				0062BDAC262745FF00F58F1B /* Views */,
@@ -206,23 +222,6 @@
 				0062BDBD262746AE00F58F1B /* SearchCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		0062BDAF2627460F00F58F1B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				008336C826278F6C004B38E6 /* Tweets.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		0062BDB02627461300F58F1B /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				008336BE26278CD1004B38E6 /* SearchServiceTarget.swift */,
-				008336C426278E2D004B38E6 /* SearchService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		0062BDC52627483A00F58F1B /* Network */ = {
@@ -262,6 +261,11 @@
 		008336D0262791E4004B38E6 /* TweetsList */ = {
 			isa = PBXGroup;
 			children = (
+				0083370126286911004B38E6 /* Service */,
+				008337002628690B004B38E6 /* Model */,
+				008336FF26286905004B38E6 /* Coordinator */,
+				008336FE26286900004B38E6 /* ViewModel */,
+				008336FD262868FA004B38E6 /* Views */,
 			);
 			path = TweetsList;
 			sourceTree = "<group>";
@@ -315,6 +319,58 @@
 				008336D1262791ED004B38E6 /* Views */,
 			);
 			path = MoodResult;
+			sourceTree = "<group>";
+		};
+		008336FD262868FA004B38E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				008817FD26287D6C00B1C1CD /* Cells */,
+				0083370A26286DC9004B38E6 /* TweetListViewController.swift */,
+				0083370B26286DC9004B38E6 /* TweetListViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		008336FE26286900004B38E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				00833702262869A4004B38E6 /* TweetListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		008336FF26286905004B38E6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0083370626286AD2004B38E6 /* TweetListCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		008337002628690B004B38E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				008336C826278F6C004B38E6 /* Tweets.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0083370126286911004B38E6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				008336BE26278CD1004B38E6 /* SearchServiceTarget.swift */,
+				008336C426278E2D004B38E6 /* SearchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		008817FD26287D6C00B1C1CD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				008817FE26287D8100B1C1CD /* TweetsTableViewCell.swift */,
+				008817FF26287D8100B1C1CD /* TweetsTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +453,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0083370D26286DC9004B38E6 /* TweetListViewController.xib in Resources */,
 				001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */,
+				0088180126287D8100B1C1CD /* TweetsTableViewCell.xib in Resources */,
 				001CA03D262742B200C0EB29 /* Assets.xcassets in Resources */,
 				0062BDBA2627466C00F58F1B /* SearchViewController.xib in Resources */,
 			);
@@ -420,23 +478,29 @@
 				008336E426279336004B38E6 /* SentimentPayload.swift in Sources */,
 				0062BDD82627483A00F58F1B /* ServiceTargetProtocol.swift in Sources */,
 				008336DE262792D7004B38E6 /* MoodServiceTarget.swift in Sources */,
+				0088180026287D8100B1C1CD /* TweetsTableViewCell.swift in Sources */,
 				0062BDC22627473500F58F1B /* SearchViewModel.swift in Sources */,
 				001CA038262742B100C0EB29 /* ViewController.swift in Sources */,
 				008336C926278F6C004B38E6 /* Tweets.swift in Sources */,
+				008336FA262867FF004B38E6 /* RoundButton.swift in Sources */,
 				0062BDBE262746AE00F58F1B /* SearchCoordinator.swift in Sources */,
 				0062BDD42627483A00F58F1B /* URLRequest+Extensions.swift in Sources */,
 				0062BDD72627483A00F58F1B /* URL+Extensions.swift in Sources */,
 				0062BDD22627483A00F58F1B /* APIClient.swift in Sources */,
 				008336B926278C5F004B38E6 /* APIKeys.swift in Sources */,
+				0083370C26286DC9004B38E6 /* TweetListViewController.swift in Sources */,
 				0062BDD52627483A00F58F1B /* RequestMethod.swift in Sources */,
 				008336BF26278CD1004B38E6 /* SearchServiceTarget.swift in Sources */,
 				001CA034262742B100C0EB29 /* AppDelegate.swift in Sources */,
 				0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */,
 				0062BDB22627462500F58F1B /* Coordinator.swift in Sources */,
+				0088180B26287E5500B1C1CD /* UITableView+Extensions.swift in Sources */,
 				008336D826279269004B38E6 /* SentimentResult.swift in Sources */,
 				008336C526278E2E004B38E6 /* SearchService.swift in Sources */,
+				00833703262869A4004B38E6 /* TweetListViewModel.swift in Sources */,
 				0062BDD32627483A00F58F1B /* Publisher+Extensions.swift in Sources */,
 				008336CD26279098004B38E6 /* AppCoordiantor.swift in Sources */,
+				0083370726286AD2004B38E6 /* TweetListCoordinator.swift in Sources */,
 				0062BDDA2627483A00F58F1B /* URLSessionProtocol.swift in Sources */,
 				0062BDD62627483A00F58F1B /* API.swift in Sources */,
 				008336EC2627954B004B38E6 /* MoodService.swift in Sources */,
