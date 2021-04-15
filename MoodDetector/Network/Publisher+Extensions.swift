@@ -59,8 +59,6 @@ extension Publisher where Output == URLResponseType {
 
 extension Publisher where Output == Data {
     func decode<T: Decodable>(as type: T.Type = T.self, using decoder: JSONDecoder = .init()) -> Publishers.Decode<Self, T, JSONDecoder> {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .iso8601
         return decode(type: type, decoder: decoder)
     }
 }

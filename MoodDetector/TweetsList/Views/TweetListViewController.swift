@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class TweetListViewController: UIViewController {
+class TweetListViewController: UIViewController, DataLoading {
     @IBOutlet weak var tableView: UITableView!
     
     let coordinator: TweetListCoordinator
@@ -16,6 +16,18 @@ class TweetListViewController: UIViewController {
     
     private var subscriptions = Set<AnyCancellable>()
     
+    
+    // MARK: - Data Loading properties
+    var state: ViewState = .loading {
+        didSet {
+            update()
+        }
+    }
+    
+    var loadingView = LoadingView()
+    var feedbackView = FeedbackView()
+    
+    // MARK: - Init
     init(coordinator: TweetListCoordinator, viewModel: TweetListViewModel) {
         self.coordinator = coordinator
         self.viewModel = viewModel
@@ -43,16 +55,22 @@ class TweetListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        feedbackView.setButtonAction {
+            self.fetchTweets()
+        }
+        
         viewModel.$tweets
             .sink { tweets in
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.state = .loaded
                 }
             }
             .store(in: &subscriptions)
     }
     
     private func fetchTweets() {
+        state = .loading
         viewModel.fetchUserTweets()
     }
 }

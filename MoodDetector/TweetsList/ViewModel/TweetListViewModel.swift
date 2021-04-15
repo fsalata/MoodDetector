@@ -28,11 +28,12 @@ final class TweetListViewModel {
             } receiveValue: { [weak self] result in
                 guard let self = self else { return }
                 
-                guard result.data.count > 0 else {
+                guard let data = result.data,
+                      data.count > 0 else {
                     return
                 }
                 
-                self.tweets = result.data
+                self.tweets = data
             }
             .store(in: &subscriptions)
     }

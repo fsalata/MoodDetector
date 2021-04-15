@@ -30,5 +30,6 @@ class RoundButton: UIButton {
     
     private func commonInit() {
         layer.cornerRadius = 20
+        contentEdgeInsets = .init(top: 8, left: 16, bottom: 8, right: 16)
     }
 }

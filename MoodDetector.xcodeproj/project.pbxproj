@@ -44,6 +44,11 @@
 		0088180026287D8100B1C1CD /* TweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008817FE26287D8100B1C1CD /* TweetsTableViewCell.swift */; };
 		0088180126287D8100B1C1CD /* TweetsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 008817FF26287D8100B1C1CD /* TweetsTableViewCell.xib */; };
 		0088180B26287E5500B1C1CD /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0088180A26287E5500B1C1CD /* UITableView+Extensions.swift */; };
+		008D589E2628A8B200E8323F /* DataLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D589D2628A8B200E8323F /* DataLoading.swift */; };
+		008D58A22628A8D800E8323F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D58A12628A8D800E8323F /* LoadingView.swift */; };
+		008D58A62628A8E600E8323F /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D58A52628A8E600E8323F /* FeedbackView.swift */; };
+		008D58AA2628A94E00E8323F /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D58A92628A94E00E8323F /* UIView+Constraints.swift */; };
+		00BC50E82628BF5100E07C5F /* MoodEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50E72628BF5100E07C5F /* MoodEmoji.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +103,11 @@
 		008817FE26287D8100B1C1CD /* TweetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsTableViewCell.swift; sourceTree = "<group>"; };
 		008817FF26287D8100B1C1CD /* TweetsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetsTableViewCell.xib; sourceTree = "<group>"; };
 		0088180A26287E5500B1C1CD /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		008D589D2628A8B200E8323F /* DataLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoading.swift; sourceTree = "<group>"; };
+		008D58A12628A8D800E8323F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		008D58A52628A8E600E8323F /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		008D58A92628A94E00E8323F /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		00BC50E72628BF5100E07C5F /* MoodEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEmoji.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +187,9 @@
 			isa = PBXGroup;
 			children = (
 				008336F9262867FF004B38E6 /* RoundButton.swift */,
+				008D589D2628A8B200E8323F /* DataLoading.swift */,
+				008D58A12628A8D800E8323F /* LoadingView.swift */,
+				008D58A52628A8E600E8323F /* FeedbackView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -185,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				0088180A26287E5500B1C1CD /* UITableView+Extensions.swift */,
+				008D58A92628A94E00E8323F /* UIView+Constraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +310,7 @@
 			children = (
 				008336E326279336004B38E6 /* SentimentPayload.swift */,
 				008336D726279269004B38E6 /* SentimentResult.swift */,
+				00BC50E72628BF5100E07C5F /* MoodEmoji.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -476,9 +491,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				008336E426279336004B38E6 /* SentimentPayload.swift in Sources */,
+				00BC50E82628BF5100E07C5F /* MoodEmoji.swift in Sources */,
 				0062BDD82627483A00F58F1B /* ServiceTargetProtocol.swift in Sources */,
 				008336DE262792D7004B38E6 /* MoodServiceTarget.swift in Sources */,
 				0088180026287D8100B1C1CD /* TweetsTableViewCell.swift in Sources */,
+				008D589E2628A8B200E8323F /* DataLoading.swift in Sources */,
 				0062BDC22627473500F58F1B /* SearchViewModel.swift in Sources */,
 				001CA038262742B100C0EB29 /* ViewController.swift in Sources */,
 				008336C926278F6C004B38E6 /* Tweets.swift in Sources */,
@@ -488,8 +505,10 @@
 				0062BDD72627483A00F58F1B /* URL+Extensions.swift in Sources */,
 				0062BDD22627483A00F58F1B /* APIClient.swift in Sources */,
 				008336B926278C5F004B38E6 /* APIKeys.swift in Sources */,
+				008D58A22628A8D800E8323F /* LoadingView.swift in Sources */,
 				0083370C26286DC9004B38E6 /* TweetListViewController.swift in Sources */,
 				0062BDD52627483A00F58F1B /* RequestMethod.swift in Sources */,
+				008D58AA2628A94E00E8323F /* UIView+Constraints.swift in Sources */,
 				008336BF26278CD1004B38E6 /* SearchServiceTarget.swift in Sources */,
 				001CA034262742B100C0EB29 /* AppDelegate.swift in Sources */,
 				0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */,
@@ -506,6 +525,7 @@
 				008336EC2627954B004B38E6 /* MoodService.swift in Sources */,
 				0062BDD92627483A00F58F1B /* APIProtocol.swift in Sources */,
 				0062BDD12627483A00F58F1B /* APIError.swift in Sources */,
+				008D58A62628A8E600E8323F /* FeedbackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
