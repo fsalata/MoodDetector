@@ -34,13 +34,13 @@ extension Publisher where Output == URLResponseType {
                 }
             }
             
-//            if let requestBody = request.httpBody {
-//                if let jsonObject = try? JSONSerialization.jsonObject(with: requestBody) {
-//                    if let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) {
-//                        Swift.print(String(data: jsonData, encoding: .utf8) ?? "")
-//                    }
-//                }
-//            }
+            if let requestBody = request.httpBody {
+                if let jsonObject = try? JSONSerialization.jsonObject(with: requestBody) {
+                    if let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) {
+                        Swift.print(String(data: jsonData, encoding: .utf8) ?? "")
+                    }
+                }
+            }
             
             Swift.print("\nMETHOD: \(request.httpMethod ?? "")")
             
