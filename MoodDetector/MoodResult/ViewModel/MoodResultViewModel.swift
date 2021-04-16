@@ -16,8 +16,6 @@ final class MoodResultViewModel {
     @Published var sentiment: String?
     @Published var error: APIError?
     
-    
-    
     private var subscriptions = Set<AnyCancellable>()
     
     init(tweet: Tweet, service: MoodService = MoodService()) {
@@ -42,17 +40,13 @@ final class MoodResultViewModel {
     }
     
     private func analyzeMoodResult(_ documentSentiment: DocumentSentiment) {
-        var sentimentEmoji = ""
-        
         switch documentSentiment.score {
         case 0.25...1:
-            sentimentEmoji = MoodEmoji.happy.rawValue
+            sentiment = MoodEmoji.happy.rawValue
         case -1.0...(-0.25):
-            sentimentEmoji = MoodEmoji.frustrated.rawValue
+            sentiment = MoodEmoji.frustrated.rawValue
         default:
-            sentimentEmoji = MoodEmoji.neutral.rawValue
+            sentiment = MoodEmoji.neutral.rawValue
         }
-        
-        sentiment = sentimentEmoji
     }
 }

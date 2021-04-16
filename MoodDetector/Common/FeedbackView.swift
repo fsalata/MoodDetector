@@ -37,6 +37,7 @@ final class FeedbackView: UIView  {
     
     weak var delegate: FeedbackViewDelegate?
     
+    // Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -72,8 +73,15 @@ final class FeedbackView: UIView  {
     private func setupView() {
         self.backgroundColor = .white
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.button.addTarget(self, action: #selector(self.handleButtonTap(sender:)), for: .touchUpInside)
     }
     
+    
+    /// Configure view labels
+    /// - Parameters:
+    ///   - message: feedback message
+    ///   - buttonTitle: button title
+    ///   - emoji: emoji to be shown (String)
     func configure(message: String,
                    buttonTitle: String,
                    emoji: String = MoodEmoji.frustrated.rawValue) {
@@ -81,20 +89,28 @@ final class FeedbackView: UIView  {
             self.messageLabel.text = message
             self.emojiLabel.text = emoji
             self.button.setTitle(buttonTitle, for: .normal)
-            self.button.addTarget(self, action: #selector(self.handleButtonTap(sender:)), for: .touchUpInside)
         }
     }
     
+    
+    /// Show feedback
+    /// - Parameters:
+    ///   - view: view where feedback will be added
+    ///   - error: APIError
     func show(in view: UIView, with error: APIError?) {
         view.addSubview(self)
         
         self.pinEdgesToSuperview()
     }
     
+    
+    /// Remove feedback
+    /// - Parameter view: view where feedback will be removed from
     func remove(from view: UIView) {
         removeFromSuperview()
     }
     
+    // MARK: - Actions
     @objc private func handleButtonTap(sender: UIButton) {
         if delegate != nil {
             delegate?.feedbackViewPerformAction(self)

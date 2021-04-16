@@ -14,11 +14,21 @@ final class LoadingView: UIView {
         return activityIndicator
     } ()
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupLayout()
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
+        commonInit()
+    }
+    
+    private func commonInit() {
+        setupLayout()
         setupView()
     }
     
@@ -35,6 +45,9 @@ final class LoadingView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    
+    /// Show loading
+    /// - Parameter view: view where loading will be added
     func show(in view: UIView) {
         DispatchQueue.main.async {
             view.addSubview(self)
@@ -44,14 +57,13 @@ final class LoadingView: UIView {
         }
     }
     
+    
+    /// Remove loading
+    /// - Parameter view: view where loading will be removed from
     func remove(from view: UIView) {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.removeFromSuperview()
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 }

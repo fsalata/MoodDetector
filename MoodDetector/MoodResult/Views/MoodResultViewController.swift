@@ -11,6 +11,7 @@ import Combine
 class MoodResultViewController: UIViewController, DataLoading {
     @IBOutlet weak var emojiLabel: UILabel!
     
+    // Initial properties
     private var coordinator: MoodResultCoordinator
     private var viewModel: MoodResultViewModel
     
@@ -24,8 +25,10 @@ class MoodResultViewController: UIViewController, DataLoading {
     var loadingView = LoadingView()
     var feedbackView = FeedbackView()
     
+    // Subscriptions
     var subscriptions = Set<AnyCancellable>()
     
+    // MARK: - Init
     init(coordinator: MoodResultCoordinator, viewModel: MoodResultViewModel) {
         self.coordinator = coordinator
         self.viewModel = viewModel
@@ -38,6 +41,7 @@ class MoodResultViewController: UIViewController, DataLoading {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +50,7 @@ class MoodResultViewController: UIViewController, DataLoading {
         fetchAnalysis()
     }
     
+    // MARK: - Private methodss
     private func setupView() {
         title = "Resultado"
         
@@ -82,6 +87,7 @@ class MoodResultViewController: UIViewController, DataLoading {
         }
     }
     
+    // MARK: - Error handling
     private func showError(_ error: APIError?) {
         feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
                                buttonTitle: "Tentar novamente?")
@@ -90,6 +96,7 @@ class MoodResultViewController: UIViewController, DataLoading {
     }
 }
 
+// MARK: - FeedbackViewDelegate
 extension MoodResultViewController: FeedbackViewDelegate {
     func feedbackViewPerformAction(_ feedbackView: FeedbackView) {
         fetchAnalysis()

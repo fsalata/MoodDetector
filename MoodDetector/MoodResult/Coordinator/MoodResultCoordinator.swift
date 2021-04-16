@@ -21,5 +21,4 @@ final class MoodResultCoordinator: Coordinator {
         let moodResultViewController = MoodResultViewController(coordinator: self, viewModel: viewModel)
         navigationController.pushViewController(moodResultViewController, animated: true)
     }
-    
 }

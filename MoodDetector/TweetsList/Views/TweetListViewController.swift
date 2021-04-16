@@ -11,11 +11,12 @@ import Combine
 class TweetListViewController: UIViewController, DataLoading {
     @IBOutlet weak var tableView: UITableView!
     
+    // Inital properties
     let coordinator: TweetListCoordinator
     let viewModel: TweetListViewModel
     
+    // Subscriptions
     private var subscriptions = Set<AnyCancellable>()
-    
     
     // MARK: - Data Loading properties
     var state: ViewState = .loading {
@@ -40,6 +41,7 @@ class TweetListViewController: UIViewController, DataLoading {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +50,7 @@ class TweetListViewController: UIViewController, DataLoading {
         fetchTweets()
     }
     
+    // MARK: - Private methods
     private func setupView() {
         navigationItem.backButtonDisplayMode = .minimal
         
@@ -102,6 +105,7 @@ class TweetListViewController: UIViewController, DataLoading {
         }
     }
     
+    // MARK: - Error handling
     private func showUserNotFoundFeedback() {
         feedbackView.configure(message: "Não foram encontrados resultados",
                                buttonTitle: "Voltar")
@@ -117,6 +121,7 @@ class TweetListViewController: UIViewController, DataLoading {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension TweetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.tweets?.count ?? 0
@@ -133,6 +138,7 @@ extension TweetListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension TweetListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let tweet = viewModel.tweets?[indexPath.row] {
@@ -141,6 +147,7 @@ extension TweetListViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - FeedbackViewDelegate
 extension TweetListViewController: FeedbackViewDelegate {
     func feedbackViewPerformAction(_ feedbackView: FeedbackView) {
         guard viewModel.error == nil else {

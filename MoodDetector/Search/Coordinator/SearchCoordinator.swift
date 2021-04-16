@@ -23,6 +23,7 @@ final class SearchCoordinator: Coordinator {
     }
 }
 
+// MARK: - View methods
 extension SearchCoordinator {
     func presentTweetResult(for username: String) {
         tweetListCoordinator = TweetListCoordinator(username: username, navigationController: navigationController)

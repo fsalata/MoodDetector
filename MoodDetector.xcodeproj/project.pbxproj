@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		001CA034262742B100C0EB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA033262742B100C0EB29 /* AppDelegate.swift */; };
-		001CA038262742B100C0EB29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA037262742B100C0EB29 /* ViewController.swift */; };
 		001CA03D262742B200C0EB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03C262742B200C0EB29 /* Assets.xcassets */; };
 		001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03E262742B200C0EB29 /* LaunchScreen.storyboard */; };
 		001CA04B262742B200C0EB29 /* MoodDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA04A262742B200C0EB29 /* MoodDetectorTests.swift */; };
@@ -69,7 +68,6 @@
 /* Begin PBXFileReference section */
 		001CA030262742B100C0EB29 /* MoodDetector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodDetector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		001CA033262742B100C0EB29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		001CA037262742B100C0EB29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		001CA03C262742B200C0EB29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		001CA03F262742B200C0EB29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		001CA041262742B200C0EB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				0062BDA9262745E500F58F1B /* Common */,
 				0062BDAA262745EB00F58F1B /* Extensions */,
 				001CA033262742B100C0EB29 /* AppDelegate.swift */,
-				001CA037262742B100C0EB29 /* ViewController.swift */,
 				001CA03C262742B200C0EB29 /* Assets.xcassets */,
 				001CA03E262742B200C0EB29 /* LaunchScreen.storyboard */,
 				001CA041262742B200C0EB29 /* Info.plist */,
@@ -514,7 +511,6 @@
 				0088180026287D8100B1C1CD /* TweetsTableViewCell.swift in Sources */,
 				008D589E2628A8B200E8323F /* DataLoading.swift in Sources */,
 				0062BDC22627473500F58F1B /* SearchViewModel.swift in Sources */,
-				001CA038262742B100C0EB29 /* ViewController.swift in Sources */,
 				008336C926278F6C004B38E6 /* Tweets.swift in Sources */,
 				008336FA262867FF004B38E6 /* RoundButton.swift in Sources */,
 				0062BDBE262746AE00F58F1B /* SearchCoordinator.swift in Sources */,

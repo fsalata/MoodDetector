@@ -25,6 +25,7 @@ final class TweetListCoordinator: Coordinator {
     }
 }
 
+// MARK: - View methods
 extension TweetListCoordinator {
     func presentMoodResult(tweet: Tweet) {
         moodResultCoordinator = MoodResultCoordinator(tweet: tweet, navigationController: navigationController)

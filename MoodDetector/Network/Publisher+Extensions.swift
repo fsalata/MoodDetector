@@ -11,6 +11,8 @@ import Combine
 typealias URLResponseType = (data:  Data, response: URLResponse)
 
 extension Publisher where Output == URLResponseType {
+    
+    /// Extract data from response
     func extractData() -> Publishers.TryMap<Self, Data> {
         tryMap { data, response in
             if let response = response as? HTTPURLResponse,
@@ -22,6 +24,7 @@ extension Publisher where Output == URLResponseType {
         }
     }
     
+    // Print API request/response data
     func debugResponse(request: URLRequest) -> Publishers.HandleEvents<Self> {
         handleEvents(receiveOutput: { output in
             #if DEBUG
@@ -37,7 +40,7 @@ extension Publisher where Output == URLResponseType {
             if let requestBody = request.httpBody {
                 if let jsonObject = try? JSONSerialization.jsonObject(with: requestBody) {
                     if let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) {
-                        Swift.print(String(data: jsonData, encoding: .utf8) ?? "")
+                        Swift.print("\nBODY: \(String(data: jsonData, encoding: .utf8) ?? "")")
                     }
                 }
             }

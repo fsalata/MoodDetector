@@ -18,6 +18,10 @@ class APIClient {
         self.api = api
     }
     
+    
+    /// Request
+    /// - Parameter target: ServiceTargetProtocol
+    /// - Returns: AnyPublisher<T: Decodable, APIError>
     func request<T: Decodable>(target: ServiceTargetProtocol) -> AnyPublisher<T, APIError> {
         guard var urlRequest = try? URLRequest(baseURL: api.baseURL, target: target) else {
             return Fail(error: APIError.network(.badURL)).eraseToAnyPublisher()

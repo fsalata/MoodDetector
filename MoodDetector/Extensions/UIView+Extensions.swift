@@ -9,6 +9,15 @@ import Foundation
 import UIKit
 
 extension UIView {
+    
+    /// Helper to add constraints to a view
+    /// - Parameters:
+    ///   - top: top anchor.
+    ///   - left: left anchor.
+    ///   - bottom: bottom anchor.
+    ///   - right: right anchor.
+    ///   - padding: padding (UIEdgeInsets). Default 0.
+    ///   - size: size (CGCize). Default 0.
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +47,9 @@ extension UIView {
         }
     }
     
+    
+    /// Pin view do superview
+    /// - Parameter offset: margin
     func pinEdgesToSuperview(_ offset: CGFloat = 0.0) {
         guard let superview = self.superview else {
             return
@@ -51,17 +63,10 @@ extension UIView {
         self.topAnchor.constraint(equalTo: superview.topAnchor, constant: offset).isActive = true
     }
     
+    
+    /// Add multiple subviews
+    /// - Parameter subviews: subviews to be added.
     func addSubviews(_ subviews: UIView...) {
         subviews.forEach(addSubview)
-    }
-    
-    func addBlurEffect() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        visualEffectView.alpha = 0.3
-        
-        visualEffectView.frame = self.bounds
-        
-        self.addSubview(visualEffectView)
-        self.sendSubviewToBack(visualEffectView)
     }
 }
