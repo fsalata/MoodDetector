@@ -54,17 +54,24 @@ class TweetListViewController: UIViewController, DataLoading {
         tableView.registerCell(of: TweetsTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
         
-        feedbackView.setButtonAction {
-            self.fetchTweets()
-        }
+        feedbackView.configure(message: "Ocorreu um erro",
+                               buttonTitle: "Tentar novamente?",
+                               buttonAction: nil)
+        
+        feedbackView.delegate = self
         
         viewModel.$tweets
             .sink { tweets in
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.state = .loaded
-                }
+                self.handleDataChanged()
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.$error
+            .sink { error in
+                guard error != nil else { return }
+                self.showError(error)
             }
             .store(in: &subscriptions)
     }
@@ -73,22 +80,67 @@ class TweetListViewController: UIViewController, DataLoading {
         state = .loading
         viewModel.fetchUserTweets()
     }
+    
+    private func handleDataChanged() {
+        DispatchQueue.main.async {
+            guard let tweet = self.viewModel.tweets else {
+                if self.viewModel.meta != nil {
+                    self.showUserNotFoundFeedback()
+                }
+                
+                return
+            }
+            
+            guard tweet.count > 0 else {
+                self.showUserNotFoundFeedback()
+                return
+            }
+            
+            self.tableView.reloadData()
+            self.state = .loaded
+        }
+    }
+    
+    private func showUserNotFoundFeedback() {
+        feedbackView.configure(message: "Não foram encontrados resultados",
+                               buttonTitle: "Voltar",
+                               buttonAction: nil)
+        
+        state = .error(nil)
+    }
+    
+    private func showError(_ error: APIError?) {
+        feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
+                               buttonTitle: "Tentar novamente?") {
+            self.fetchTweets()
+        }
+        
+        state = .error(error)
+    }
 }
 
 extension TweetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.tweets.count
+        return viewModel.tweets?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return tableView.dequeueCell(of: TweetsTableViewCell.self, for: indexPath) { [weak self] cell in
             guard let self = self else { return }
             
-            cell.configure(tweet: self.viewModel.tweets[indexPath.row])
+            if let tweets = self.viewModel.tweets {
+                cell.configure(tweet: tweets[indexPath.row])
+            }
         }
     }
 }
 
 extension TweetListViewController: UITableViewDelegate {
     
+}
+
+extension TweetListViewController: FeedbackViewDelegate {
+    func feedbackViewPerformAction(_ feedbackView: FeedbackView) {
+        navigationController?.popViewController(animated: true)
+    }
 }

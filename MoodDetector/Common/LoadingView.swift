@@ -36,15 +36,19 @@ final class LoadingView: UIView {
     }
     
     func show(in view: UIView) {
-        view.addSubview(self)
-        
-        self.pinEdgesToSuperview()
-        activityIndicator.startAnimating()
+        DispatchQueue.main.async {
+            view.addSubview(self)
+            
+            self.pinEdgesToSuperview()
+            self.activityIndicator.startAnimating()
+        }
     }
     
     func remove(from view: UIView) {
-        activityIndicator.stopAnimating()
-        removeFromSuperview()
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.removeFromSuperview()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

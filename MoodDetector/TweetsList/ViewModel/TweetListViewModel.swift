@@ -12,7 +12,10 @@ final class TweetListViewModel {
     let username: String
     let service: SearchService
     
-    @Published var tweets: [Tweet] = []
+    @Published var tweets: [Tweet]?
+    @Published var error: APIError?
+    
+    var meta: Meta?
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -23,17 +26,18 @@ final class TweetListViewModel {
     
     func fetchUserTweets() {
         service.fetchUserRecentTweets(username: username)
-            .sink { completion in
-                print(completion)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                
+                if case .failure(let error) = completion {
+                    self.error = error
+                }
             } receiveValue: { [weak self] result in
                 guard let self = self else { return }
                 
-                guard let data = result.data,
-                      data.count > 0 else {
-                    return
-                }
+                self.meta = result.meta
                 
-                self.tweets = data
+                self.tweets = result.data
             }
             .store(in: &subscriptions)
     }

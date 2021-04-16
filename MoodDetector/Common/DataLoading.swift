@@ -18,23 +18,25 @@ protocol DataLoading {
 enum ViewState {
     case loading
     case loaded
-    case error(_ error: APIError)
+    case error(_ error: APIError?)
 }
 
 extension DataLoading where Self: UIViewController {
     func update() {
-        switch state {
-        case .loading:
-            loadingView.show(in: self.view)
-            feedbackView.remove(from: self.view)
-            
-        case .error(let error):
-            loadingView.remove(from: self.view)
-            feedbackView.show(in: self.view, with: error)
-            
-        case .loaded:
-            loadingView.remove(from: self.view)
-            feedbackView.remove(from: self.view)
+        DispatchQueue.main.async {
+            switch self.state {
+            case .loading:
+                self.loadingView.show(in: self.view)
+                self.feedbackView.remove(from: self.view)
+                
+            case .error(let error):
+                self.loadingView.remove(from: self.view)
+                self.feedbackView.show(in: self.view, with: error)
+                
+            case .loaded:
+                self.loadingView.remove(from: self.view)
+                self.feedbackView.remove(from: self.view)
+            }
         }
     }
 }

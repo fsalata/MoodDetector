@@ -7,17 +7,23 @@
 
 import UIKit
 
+protocol FeedbackViewDelegate: AnyObject {
+    func feedbackViewPerformAction(_ feedbackView: FeedbackView)
+}
+
 final class FeedbackView: UIView  {
     lazy var emojiLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 104.0)
+        label.font = UIFont(name: "HelveticaNeue", size: 120.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var message: UILabel! = {
+    lazy var messageLabel: UILabel! = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue", size: 14.0)
+        label.numberOfLines = 0
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -30,6 +36,8 @@ final class FeedbackView: UIView  {
     }()
     
     private var buttonAction: (() -> Void)?
+    
+    weak var delegate: FeedbackViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,25 +60,14 @@ final class FeedbackView: UIView  {
         containerView.alignment = .center
         
         self.addSubview(containerView)
-//
-//        containerView.pinEdgesToSuperview()
         
-//        addSubviews(emojiLabel, message, button)
-        
-        containerView.addArrangedSubview(emojiLabel)
-        containerView.addArrangedSubview(message)
-        containerView.addArrangedSubview(button)
+        containerView.addArrangedSubviews(emojiLabel, messageLabel, button)
         
         NSLayoutConstraint.activate([
-            containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            
-            button.widthAnchor.constraint(equalToConstant: 150)
-            
+            containerView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            containerView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-        
-//        message.anchor(top: containerView.topAnchor, left: containerView.leftAnchor, bottom: nil, right: containerView.rightAnchor)
-//        button.anchor(top: layoutMarginsGuide.bottomAnchor, left: containerView.leftAnchor, bottom: containerView.bottomAnchor, right: containerView.rightAnchor, padding: .init(top: 0, left: 0, bottom: -20, right: 0 ))
         
     }
     
@@ -79,20 +76,22 @@ final class FeedbackView: UIView  {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setButtonAction(_ buttonAction: (() -> Void)?) {
-        self.buttonAction = buttonAction
+    func configure(message: String,
+                   buttonTitle: String,
+                   buttonAction: (() -> Void)?,
+                   emoji: String = MoodEmoji.frustrated.rawValue) {
+        DispatchQueue.main.async {
+            self.messageLabel.text = message
+            self.emojiLabel.text = emoji
+            self.button.setTitle(buttonTitle, for: .normal)
+            self.button.addTarget(self, action: #selector(self.handleButtonTap(sender:)), for: .touchUpInside)
+        }
     }
     
-    func show(in view: UIView, with error: APIError) {
+    func show(in view: UIView, with error: APIError?) {
         view.addSubview(self)
         
         self.pinEdgesToSuperview()
-        
-        emojiLabel.text = MoodEmoji.frustrated.rawValue
-        message.text = "Aconteceu um erro"
-        button.setTitle("Tentar novamente", for: .normal)
-        
-        button.addTarget(self, action: #selector(handleButtonTap(sender:)), for: .touchUpInside)
     }
     
     func remove(from view: UIView) {
@@ -101,6 +100,11 @@ final class FeedbackView: UIView  {
     
     @objc private func handleButtonTap(sender: UIButton) {
         buttonAction?()
+        
+        if delegate != nil {
+            delegate?.feedbackViewPerformAction(self)
+        }
+        
         removeFromSuperview()
     }
 }
