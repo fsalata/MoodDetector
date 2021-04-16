@@ -10,7 +10,6 @@
 		001CA034262742B100C0EB29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA033262742B100C0EB29 /* AppDelegate.swift */; };
 		001CA03D262742B200C0EB29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03C262742B200C0EB29 /* Assets.xcassets */; };
 		001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03E262742B200C0EB29 /* LaunchScreen.storyboard */; };
-		001CA04B262742B200C0EB29 /* MoodDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CA04A262742B200C0EB29 /* MoodDetectorTests.swift */; };
 		0062BDB22627462500F58F1B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDB12627462500F58F1B /* Coordinator.swift */; };
 		0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDB72627466C00F58F1B /* SearchViewController.swift */; };
 		0062BDBA2627466C00F58F1B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0062BDB82627466C00F58F1B /* SearchViewController.xib */; };
@@ -53,6 +52,8 @@
 		00BC50F42629BC1D00E07C5F /* MoodResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BC50F22629BC1D00E07C5F /* MoodResultViewController.xib */; };
 		00BC50F82629BC8400E07C5F /* MoodResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50F72629BC8400E07C5F /* MoodResultViewModel.swift */; };
 		00BC50FC2629BD7300E07C5F /* MoodResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50FB2629BD7300E07C5F /* MoodResultCoordinator.swift */; };
+		00FA84212629F8B8008758BD /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA84202629F8B8008758BD /* TestingAppDelegate.swift */; };
+		00FA84252629F92B008758BD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA84242629F92B008758BD /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,6 @@
 		001CA03F262742B200C0EB29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		001CA041262742B200C0EB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001CA046262742B200C0EB29 /* MoodDetectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodDetectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		001CA04A262742B200C0EB29 /* MoodDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDetectorTests.swift; sourceTree = "<group>"; };
 		001CA04C262742B200C0EB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0062BDB12627462500F58F1B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0062BDB72627466C00F58F1B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +116,8 @@
 		00BC50F22629BC1D00E07C5F /* MoodResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoodResultViewController.xib; sourceTree = "<group>"; };
 		00BC50F72629BC8400E07C5F /* MoodResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodResultViewModel.swift; sourceTree = "<group>"; };
 		00BC50FB2629BD7300E07C5F /* MoodResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodResultCoordinator.swift; sourceTree = "<group>"; };
+		00FA84202629F8B8008758BD /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		00FA84242629F92B008758BD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,8 @@
 		001CA032262742B100C0EB29 /* MoodDetector */ = {
 			isa = PBXGroup;
 			children = (
+				00FA84242629F92B008758BD /* main.swift */,
+				001CA033262742B100C0EB29 /* AppDelegate.swift */,
 				0062BDC52627483A00F58F1B /* Network */,
 				0062BDA8262745DE00F58F1B /* Coordinator */,
 				0062BDAB262745F600F58F1B /* Search */,
@@ -164,7 +168,6 @@
 				008336D62627923E004B38E6 /* MoodResult */,
 				0062BDA9262745E500F58F1B /* Common */,
 				0062BDAA262745EB00F58F1B /* Extensions */,
-				001CA033262742B100C0EB29 /* AppDelegate.swift */,
 				001CA03C262742B200C0EB29 /* Assets.xcassets */,
 				001CA03E262742B200C0EB29 /* LaunchScreen.storyboard */,
 				001CA041262742B200C0EB29 /* Info.plist */,
@@ -175,7 +178,7 @@
 		001CA049262742B200C0EB29 /* MoodDetectorTests */ = {
 			isa = PBXGroup;
 			children = (
-				001CA04A262742B200C0EB29 /* MoodDetectorTests.swift */,
+				00FA84202629F8B8008758BD /* TestingAppDelegate.swift */,
 				001CA04C262742B200C0EB29 /* Info.plist */,
 			);
 			path = MoodDetectorTests;
@@ -452,6 +455,7 @@
 					};
 					001CA045262742B200C0EB29 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 						TestTargetID = 001CA02F262742B100C0EB29;
 					};
 				};
@@ -529,6 +533,7 @@
 				0062BDB22627462500F58F1B /* Coordinator.swift in Sources */,
 				0088180B26287E5500B1C1CD /* UITableView+Extensions.swift in Sources */,
 				008336D826279269004B38E6 /* SentimentResult.swift in Sources */,
+				00FA84252629F92B008758BD /* main.swift in Sources */,
 				008336C526278E2E004B38E6 /* SearchService.swift in Sources */,
 				00833703262869A4004B38E6 /* TweetListViewModel.swift in Sources */,
 				00BC50F32629BC1D00E07C5F /* MoodResultViewController.swift in Sources */,
@@ -549,7 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001CA04B262742B200C0EB29 /* MoodDetectorTests.swift in Sources */,
+				00FA84212629F8B8008758BD /* TestingAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +739,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4473R8PQA5;
 				INFOPLIST_FILE = MoodDetectorTests/Info.plist;
@@ -745,6 +751,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.fabiosalata.MoodDetectorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoodDetector.app/MoodDetector";
@@ -756,6 +763,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4473R8PQA5;
 				INFOPLIST_FILE = MoodDetectorTests/Info.plist;
