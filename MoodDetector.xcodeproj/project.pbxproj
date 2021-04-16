@@ -27,7 +27,7 @@
 		0062BDDA2627483A00F58F1B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDD02627483A00F58F1B /* URLSessionProtocol.swift */; };
 		008336B926278C5F004B38E6 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336B826278C5F004B38E6 /* APIKeys.swift */; };
 		008336BF26278CD1004B38E6 /* TweetListServiceTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336BE26278CD1004B38E6 /* TweetListServiceTarget.swift */; };
-		008336C526278E2E004B38E6 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336C426278E2D004B38E6 /* SearchService.swift */; };
+		008336C526278E2E004B38E6 /* TweetListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336C426278E2D004B38E6 /* TweetListService.swift */; };
 		008336C926278F6C004B38E6 /* Tweets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336C826278F6C004B38E6 /* Tweets.swift */; };
 		008336CD26279098004B38E6 /* AppCoordiantor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336CC26279098004B38E6 /* AppCoordiantor.swift */; };
 		008336D826279269004B38E6 /* SentimentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008336D726279269004B38E6 /* SentimentResult.swift */; };
@@ -58,7 +58,7 @@
 		00FA84302629F9FA008758BD /* MockTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA842C2629F9FA008758BD /* MockTargets.swift */; };
 		00FA84312629F9FA008758BD /* URLSessionSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA842D2629F9FA008758BD /* URLSessionSpy.swift */; };
 		00FA84322629F9FA008758BD /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA842E2629F9FA008758BD /* Mocks.swift */; };
-		00FA843A262A0596008758BD /* MoodServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA8439262A0596008758BD /* MoodServiceTests.swift */; };
+		00FA843A262A0596008758BD /* TweetListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA8439262A0596008758BD /* TweetListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,7 @@
 		0062BDD02627483A00F58F1B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		008336B826278C5F004B38E6 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		008336BE26278CD1004B38E6 /* TweetListServiceTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListServiceTarget.swift; sourceTree = "<group>"; };
-		008336C426278E2D004B38E6 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		008336C426278E2D004B38E6 /* TweetListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListService.swift; sourceTree = "<group>"; };
 		008336C826278F6C004B38E6 /* Tweets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweets.swift; sourceTree = "<group>"; };
 		008336CC26279098004B38E6 /* AppCoordiantor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordiantor.swift; sourceTree = "<group>"; };
 		008336D726279269004B38E6 /* SentimentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentResult.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		00FA842C2629F9FA008758BD /* MockTargets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTargets.swift; sourceTree = "<group>"; };
 		00FA842D2629F9FA008758BD /* URLSessionSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionSpy.swift; sourceTree = "<group>"; };
 		00FA842E2629F9FA008758BD /* Mocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
-		00FA8439262A0596008758BD /* MoodServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodServiceTests.swift; sourceTree = "<group>"; };
+		00FA8439262A0596008758BD /* TweetListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,7 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				008336BE26278CD1004B38E6 /* TweetListServiceTarget.swift */,
-				008336C426278E2D004B38E6 /* SearchService.swift */,
+				008336C426278E2D004B38E6 /* TweetListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -420,7 +420,7 @@
 			children = (
 				00FA8438262A0574008758BD /* Helpers */,
 				00FA842B2629F9FA008758BD /* APIClientTests.swift */,
-				00FA8439262A0596008758BD /* MoodServiceTests.swift */,
+				00FA8439262A0596008758BD /* TweetListTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -573,7 +573,7 @@
 				0088180B26287E5500B1C1CD /* UITableView+Extensions.swift in Sources */,
 				008336D826279269004B38E6 /* SentimentResult.swift in Sources */,
 				00FA84252629F92B008758BD /* main.swift in Sources */,
-				008336C526278E2E004B38E6 /* SearchService.swift in Sources */,
+				008336C526278E2E004B38E6 /* TweetListService.swift in Sources */,
 				00833703262869A4004B38E6 /* TweetListViewModel.swift in Sources */,
 				00BC50F32629BC1D00E07C5F /* MoodResultViewController.swift in Sources */,
 				00BC50FC2629BD7300E07C5F /* MoodResultCoordinator.swift in Sources */,
@@ -595,7 +595,7 @@
 			files = (
 				00FA84212629F8B8008758BD /* TestingAppDelegate.swift in Sources */,
 				00FA84312629F9FA008758BD /* URLSessionSpy.swift in Sources */,
-				00FA843A262A0596008758BD /* MoodServiceTests.swift in Sources */,
+				00FA843A262A0596008758BD /* TweetListTests.swift in Sources */,
 				00FA842F2629F9FA008758BD /* APIClientTests.swift in Sources */,
 				00FA84302629F9FA008758BD /* MockTargets.swift in Sources */,
 				00FA84322629F9FA008758BD /* Mocks.swift in Sources */,

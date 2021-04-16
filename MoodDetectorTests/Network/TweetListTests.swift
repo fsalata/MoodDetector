@@ -9,10 +9,10 @@ import XCTest
 @testable import MoodDetector
 import Combine
 
-class MoodServiceTests: XCTestCase {
+class TweetListTests: XCTestCase {
     var subscribers = Set<AnyCancellable>()
     
-    var sut: SearchService!
+    var sut: TweetListService!
     var session: URLSessionSpy!
     
     override func setUp() {
@@ -20,7 +20,7 @@ class MoodServiceTests: XCTestCase {
         
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        sut = SearchService()
+        sut = TweetListService()
         sut.client = client
     }
     

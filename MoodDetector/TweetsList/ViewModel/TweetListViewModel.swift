@@ -10,7 +10,7 @@ import Combine
 
 final class TweetListViewModel {
     let username: String
-    let service: SearchService
+    let service: TweetListService
     
     @Published var tweets: [Tweet]?
     @Published var error: APIError?
@@ -19,7 +19,7 @@ final class TweetListViewModel {
     
     private var subscriptions = Set<AnyCancellable>()
     
-    init(username: String, service: SearchService = SearchService()) {
+    init(username: String, service: TweetListService = TweetListService()) {
         self.username = username
         self.service = service
     }
