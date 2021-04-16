@@ -9,6 +9,8 @@ import UIKit
 import Combine
 
 class SearchViewController: UIViewController {
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var searchInfoLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var searchButton: RoundButton!
     @IBOutlet weak var errorMessageLabel: UILabel!
@@ -39,6 +41,12 @@ class SearchViewController: UIViewController {
 
         setupView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        animateViews()
+    }
 
     // MARK: - Private methods
     private func setupView() {
@@ -46,7 +54,32 @@ class SearchViewController: UIViewController {
         
         title = "Mood Detector"
         
+        prepareViewsForAnimation()
+        
         usernameTextField.delegate = self
+    }
+    
+    private func prepareViewsForAnimation() {
+        if let navigationBarHeight = navigationController?.navigationBar.frame.height {
+            usernameTextField.alpha = 0
+            searchButton.alpha = 0
+            searchInfoLabel.alpha = 0
+            
+            let yPos = view.center.y - logoImageView.center.y - navigationBarHeight - 20
+            logoImageView.transform = CGAffineTransform(translationX: 0, y: yPos)
+        }
+    }
+    
+    private func animateViews() {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.45, delay: 0, options: .curveEaseInOut) {
+            self.logoImageView.transform = .identity
+        }
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.45, delay: 0.15, options: .curveEaseInOut) {
+            self.usernameTextField.alpha = 1
+            self.searchButton.alpha = 1
+            self.searchInfoLabel.alpha = 1
+        }
     }
     
     // MARK: - Actions

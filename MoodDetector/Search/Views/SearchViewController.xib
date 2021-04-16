@@ -11,7 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="MoodDetector" customModuleProvider="target">
             <connections>
                 <outlet property="errorMessageLabel" destination="yBK-kT-ofN" id="vuu-oQ-ecl"/>
+                <outlet property="logoImageView" destination="3Cb-jS-GIu" id="vNp-pe-q2L"/>
                 <outlet property="searchButton" destination="0BZ-0h-jGw" id="2tO-bg-i9H"/>
+                <outlet property="searchInfoLabel" destination="6hp-PG-cCe" id="uRT-lS-CFg"/>
                 <outlet property="usernameTextField" destination="3Et-Ef-HzR" id="krt-Zx-Ttb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
