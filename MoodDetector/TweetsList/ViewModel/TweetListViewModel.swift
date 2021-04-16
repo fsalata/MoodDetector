@@ -36,7 +36,6 @@ final class TweetListViewModel {
                 guard let self = self else { return }
                 
                 self.meta = result.meta
-                
                 self.tweets = result.data
             }
             .store(in: &subscriptions)

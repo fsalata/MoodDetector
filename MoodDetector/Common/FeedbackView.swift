@@ -35,8 +35,6 @@ final class FeedbackView: UIView  {
         return button
     }()
     
-    private var buttonAction: (() -> Void)?
-    
     weak var delegate: FeedbackViewDelegate?
     
     override init(frame: CGRect) {
@@ -78,7 +76,6 @@ final class FeedbackView: UIView  {
     
     func configure(message: String,
                    buttonTitle: String,
-                   buttonAction: (() -> Void)?,
                    emoji: String = MoodEmoji.frustrated.rawValue) {
         DispatchQueue.main.async {
             self.messageLabel.text = message
@@ -99,8 +96,6 @@ final class FeedbackView: UIView  {
     }
     
     @objc private func handleButtonTap(sender: UIButton) {
-        buttonAction?()
-        
         if delegate != nil {
             delegate?.feedbackViewPerformAction(self)
         }

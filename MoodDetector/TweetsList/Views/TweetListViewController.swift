@@ -51,14 +51,15 @@ class TweetListViewController: UIViewController, DataLoading {
     private func setupView() {
         navigationItem.backButtonDisplayMode = .minimal
         
+        title = "\(viewModel.username) tweets".capitalized
+        
         tableView.registerCell(of: TweetsTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         
         feedbackView.configure(message: "Ocorreu um erro",
-                               buttonTitle: "Tentar novamente?",
-                               buttonAction: nil)
+                               buttonTitle: "Tentar novamente?")
         
         feedbackView.delegate = self
         
@@ -103,17 +104,14 @@ class TweetListViewController: UIViewController, DataLoading {
     
     private func showUserNotFoundFeedback() {
         feedbackView.configure(message: "Não foram encontrados resultados",
-                               buttonTitle: "Voltar",
-                               buttonAction: nil)
+                               buttonTitle: "Voltar")
         
         state = .error(nil)
     }
     
     private func showError(_ error: APIError?) {
         feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
-                               buttonTitle: "Tentar novamente?") {
-            self.fetchTweets()
-        }
+                               buttonTitle: "Tentar novamente?")
         
         state = .error(error)
     }
@@ -128,19 +126,28 @@ extension TweetListViewController: UITableViewDataSource {
         return tableView.dequeueCell(of: TweetsTableViewCell.self, for: indexPath) { [weak self] cell in
             guard let self = self else { return }
             
-            if let tweets = self.viewModel.tweets {
-                cell.configure(tweet: tweets[indexPath.row])
+            if let tweet = self.viewModel.tweets?[indexPath.row] {
+                cell.configure(tweet: tweet)
             }
         }
     }
 }
 
 extension TweetListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let tweet = viewModel.tweets?[indexPath.row] {
+            coordinator.presentMoodResult(tweet: tweet)
+        }
+    }
 }
 
 extension TweetListViewController: FeedbackViewDelegate {
     func feedbackViewPerformAction(_ feedbackView: FeedbackView) {
+        guard viewModel.error == nil else {
+            fetchTweets()
+            return
+        }
+        
         navigationController?.popViewController(animated: true)
     }
 }

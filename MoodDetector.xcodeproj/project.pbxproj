@@ -50,6 +50,10 @@
 		008D58AA2628A94E00E8323F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008D58A92628A94E00E8323F /* UIView+Extensions.swift */; };
 		00BC50E82628BF5100E07C5F /* MoodEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50E72628BF5100E07C5F /* MoodEmoji.swift */; };
 		00BC50EE2629A55600E07C5F /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50ED2629A55600E07C5F /* UIStackView+Extensions.swift */; };
+		00BC50F32629BC1D00E07C5F /* MoodResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50F12629BC1D00E07C5F /* MoodResultViewController.swift */; };
+		00BC50F42629BC1D00E07C5F /* MoodResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BC50F22629BC1D00E07C5F /* MoodResultViewController.xib */; };
+		00BC50F82629BC8400E07C5F /* MoodResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50F72629BC8400E07C5F /* MoodResultViewModel.swift */; };
+		00BC50FC2629BD7300E07C5F /* MoodResultCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC50FB2629BD7300E07C5F /* MoodResultCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +114,10 @@
 		008D58A92628A94E00E8323F /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		00BC50E72628BF5100E07C5F /* MoodEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEmoji.swift; sourceTree = "<group>"; };
 		00BC50ED2629A55600E07C5F /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		00BC50F12629BC1D00E07C5F /* MoodResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodResultViewController.swift; sourceTree = "<group>"; };
+		00BC50F22629BC1D00E07C5F /* MoodResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoodResultViewController.xib; sourceTree = "<group>"; };
+		00BC50F72629BC8400E07C5F /* MoodResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodResultViewModel.swift; sourceTree = "<group>"; };
+		00BC50FB2629BD7300E07C5F /* MoodResultCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodResultCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +298,8 @@
 		008336D1262791ED004B38E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00BC50F12629BC1D00E07C5F /* MoodResultViewController.swift */,
+				00BC50F22629BC1D00E07C5F /* MoodResultViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +307,7 @@
 		008336D2262791F1004B38E6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				00BC50F72629BC8400E07C5F /* MoodResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -304,6 +315,7 @@
 		008336D3262791F6004B38E6 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				00BC50FB2629BD7300E07C5F /* MoodResultCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -473,6 +485,7 @@
 			files = (
 				0083370D26286DC9004B38E6 /* TweetListViewController.xib in Resources */,
 				001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */,
+				00BC50F42629BC1D00E07C5F /* MoodResultViewController.xib in Resources */,
 				0088180126287D8100B1C1CD /* TweetsTableViewCell.xib in Resources */,
 				001CA03D262742B200C0EB29 /* Assets.xcassets in Resources */,
 				0062BDBA2627466C00F58F1B /* SearchViewController.xib in Resources */,
@@ -509,6 +522,7 @@
 				0062BDD72627483A00F58F1B /* URL+Extensions.swift in Sources */,
 				0062BDD22627483A00F58F1B /* APIClient.swift in Sources */,
 				008336B926278C5F004B38E6 /* APIKeys.swift in Sources */,
+				00BC50F82629BC8400E07C5F /* MoodResultViewModel.swift in Sources */,
 				008D58A22628A8D800E8323F /* LoadingView.swift in Sources */,
 				0083370C26286DC9004B38E6 /* TweetListViewController.swift in Sources */,
 				0062BDD52627483A00F58F1B /* RequestMethod.swift in Sources */,
@@ -521,6 +535,8 @@
 				008336D826279269004B38E6 /* SentimentResult.swift in Sources */,
 				008336C526278E2E004B38E6 /* SearchService.swift in Sources */,
 				00833703262869A4004B38E6 /* TweetListViewModel.swift in Sources */,
+				00BC50F32629BC1D00E07C5F /* MoodResultViewController.swift in Sources */,
+				00BC50FC2629BD7300E07C5F /* MoodResultCoordinator.swift in Sources */,
 				0062BDD32627483A00F58F1B /* Publisher+Extensions.swift in Sources */,
 				008336CD26279098004B38E6 /* AppCoordiantor.swift in Sources */,
 				0083370726286AD2004B38E6 /* TweetListCoordinator.swift in Sources */,

@@ -39,6 +39,8 @@ class SearchViewController: UIViewController {
     private func setupView() {
         navigationItem.backButtonDisplayMode = .minimal
         
+        title = "Mood Detector"
+        
         usernameTextField.delegate = self
     }
     

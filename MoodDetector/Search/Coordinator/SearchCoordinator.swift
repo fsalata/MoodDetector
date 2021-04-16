@@ -10,6 +10,8 @@ import UIKit
 final class SearchCoordinator: Coordinator {
     var navigationController: UINavigationController
     
+    var tweetListCoordinator: TweetListCoordinator!
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -23,7 +25,7 @@ final class SearchCoordinator: Coordinator {
 
 extension SearchCoordinator {
     func presentTweetResult(for username: String) {
-        let tweetListCoordinator = TweetListCoordinator(username: username, navigationController: navigationController)
+        tweetListCoordinator = TweetListCoordinator(username: username, navigationController: navigationController)
         tweetListCoordinator.start()
     }
 }
