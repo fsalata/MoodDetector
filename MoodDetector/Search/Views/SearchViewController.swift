@@ -17,15 +17,13 @@ class SearchViewController: UIViewController {
     
     // Initial properties
     var coordinator: SearchCoordinator
-    var viewModel: SearchViewModel
     
     // Subscriptions
     var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Init
-    init(coordinator: SearchCoordinator, viewModel: SearchViewModel) {
+    init(coordinator: SearchCoordinator) {
         self.coordinator = coordinator
-        self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
     }
