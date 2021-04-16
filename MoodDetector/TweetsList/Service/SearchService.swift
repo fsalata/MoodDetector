@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class SearchService {
-    let client = APIClient(api: TwitterAPI())
+    var client = APIClient(api: TwitterAPI())
     
     func fetchUserRecentTweets(username: String) -> AnyPublisher<SearchResult, APIError> {
         return client.request(target: TweetListServiceTarget.search(username: username))
