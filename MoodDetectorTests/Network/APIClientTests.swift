@@ -132,6 +132,31 @@ class APIClientTests: XCTestCase {
         XCTAssertNotNil(result)
         XCTAssertEqual(result, APIError.service(.internalServerError))
     }
+    
+    func test_APIClient_withParseFailure() {
+        session.data = mockEmptyResponse()
+        session.response = HTTPURLResponse(url: URL(string: MockAPI().baseURL)!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        
+        let publisher: AnyPublisher<SearchResult, APIError> = sut.request(target: MockGETServiceTarget.mock(page: 0))
+        
+        var result: APIError?
+        
+        publisher
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    result = error
+                default:
+                    break
+                }
+            } receiveValue: { movies in
+                XCTFail()
+            }
+            .store(in: &subscribers)
+        
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result, APIError.parse(.dataCorrupted(debugDescription: "The given data was not valid JSON.")))
+    }
 }
 
 struct MockAPI: APIProtocol {

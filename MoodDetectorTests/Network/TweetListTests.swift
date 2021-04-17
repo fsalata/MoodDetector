@@ -57,6 +57,7 @@ class TweetListTests: XCTestCase {
         let request = session.dataTaskArgsRequest.first
         
         XCTAssertEqual(request?.httpMethod, RequestMethod.GET.rawValue)
+        XCTAssertNil(request?.httpBody)
         let url = try XCTUnwrap(request?.url)
         XCTAssertEqual(url.absoluteString, expectedURL)
         XCTAssertNotNil(result)

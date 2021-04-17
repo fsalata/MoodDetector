@@ -13,7 +13,7 @@ class MoodServiceTests: XCTestCase {
 
     var subscribers = Set<AnyCancellable>()
     
-    var sut: TweetListService!
+    var sut: MoodService!
     var session: URLSessionSpy!
     
     override func setUp() {
@@ -21,7 +21,7 @@ class MoodServiceTests: XCTestCase {
         
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        sut = TweetListService()
+        sut = MoodService()
         sut.client = client
     }
     
@@ -32,15 +32,18 @@ class MoodServiceTests: XCTestCase {
     }
     
     func test_fetchUserTweets_withSuccess() throws {
-        let expectedURL = "https://mock.com//2/tweets/search/recent?query=from:binccp"
-        let expectedText = "Wishing a safe and peaceful month of Ramadan to all those observing around the world. Ramadan Mubarak!"
+        let tweet = Tweet(id: "1", text: "Olá")
         
-        session.data = mockTweetResponse()
+        let expectedURL = "https://mock.com//v1beta2/documents:analyzeSentiment?key=AIzaSyCrthPxP76XUOwmpvix289aioLK9yUfBRk"
+        let expectedMagnitude = 1.3999999999999999
+        let expetedScore = 0.69999999999999996
+        
+        session.data = mockSentimentResponse()
         session.response = HTTPURLResponse(url: URL(string: TwitterAPI().baseURL)!, statusCode: 200, httpVersion: nil, headerFields: nil)
         
-        let publisher: AnyPublisher<SearchResult, APIError> = sut.fetchUserRecentTweets(username: "binccp")
+        let publisher: AnyPublisher<SentimentResult, APIError> = sut.analyzeTweetMood(tweet: tweet)
         
-        var result: SearchResult?
+        var result: SentimentResult?
         
         publisher
             .sink { completion in
@@ -50,28 +53,30 @@ class MoodServiceTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { searchResult in
-                result = searchResult
+            } receiveValue: { sentimentResult in
+                result = sentimentResult
             }
             .store(in: &subscribers)
 
         let request = session.dataTaskArgsRequest.first
         
-        XCTAssertEqual(request?.httpMethod, RequestMethod.GET.rawValue)
+        XCTAssertEqual(request?.httpMethod, RequestMethod.POST.rawValue)
         let url = try XCTUnwrap(request?.url)
         XCTAssertEqual(url.absoluteString, expectedURL)
         XCTAssertNotNil(result)
-        XCTAssertEqual(result?.data?.count, 2)
-        XCTAssertEqual(result?.data?.last?.text, expectedText)
+        XCTAssertEqual(result?.documentSentiment.magnitude, expectedMagnitude)
+        XCTAssertEqual(result?.documentSentiment.score, expetedScore)
     }
     
     func test_fetchUserTweets_withNetworkFailure() {
+        let tweet = Tweet(id: "1", text: "Olá")
+        
         session.urlError = URLError(.badURL)
-        
-        let publisher: AnyPublisher<SearchResult, APIError> = sut.fetchUserRecentTweets(username: "binccp")
-        
+
+        let publisher: AnyPublisher<SentimentResult, APIError> = sut.analyzeTweetMood(tweet: tweet)
+
         var result: APIError?
-        
+
         publisher
             .sink { completion in
                 switch completion {
@@ -84,18 +89,20 @@ class MoodServiceTests: XCTestCase {
                 XCTFail()
             }
             .store(in: &subscribers)
-        
+
         XCTAssertNotNil(result)
         XCTAssertEqual(result, APIError.network(.badURL))
     }
-    
+
     func test_fetchUserTweets_withServiceFailure() {
+        let tweet = Tweet(id: "1", text: "Olá")
+        
         session.response = HTTPURLResponse(url: URL(string: TwitterAPI().baseURL)!, statusCode: 500, httpVersion: nil, headerFields: nil)
-        
-        let publisher: AnyPublisher<SearchResult, APIError> = sut.fetchUserRecentTweets(username: "binccp")
-        
+
+        let publisher: AnyPublisher<SentimentResult, APIError> = sut.analyzeTweetMood(tweet: tweet)
+
         var result: APIError?
-        
+
         publisher
             .sink { completion in
                 switch completion {
@@ -108,7 +115,7 @@ class MoodServiceTests: XCTestCase {
                 XCTFail()
             }
             .store(in: &subscribers)
-        
+
         XCTAssertNotNil(result)
         XCTAssertEqual(result, APIError.service(.internalServerError))
     }

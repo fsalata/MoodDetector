@@ -38,6 +38,9 @@ class APIClient {
             .extractData()
             .decode()
             .mapError { error in
+                if error is DecodingError {
+                    return APIError(error as! DecodingError)
+                }
                 return error as? APIError ?? APIError.unknown
             }
             .eraseToAnyPublisher()

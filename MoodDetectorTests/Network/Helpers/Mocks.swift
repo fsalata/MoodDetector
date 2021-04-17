@@ -29,7 +29,7 @@ func mockTweetResponse() -> Data {
            """.data(using: .utf8)!
 }
 
-func mockSentimentResponse() -> Data? {
+func mockSentimentResponse() -> Data {
     return  """
             {
               "documentSentiment" : {
@@ -63,7 +63,21 @@ func mockSentimentResponse() -> Data? {
             """.data(using: .utf8)!
 }
 
-func mockSentimentPayload() -> Data? {
+func mockEmptyResponse() -> Data {
+    return  """
+            {
+              "meta" : nil,
+              "data" : [
+                {
+                  "id" : nil,
+                  "text" : "mock"
+                }
+              ]
+            }
+            """.data(using: .utf8)!
+}
+
+func mockSentimentPayload() -> Data {
     return  """
             {
               "document" : {
@@ -72,7 +86,7 @@ func mockSentimentPayload() -> Data? {
               },
               "encodingType" : "UTF8"
             }
-            """.data(using: .utf8)
+            """.data(using: .utf8)!
 }
 
 
