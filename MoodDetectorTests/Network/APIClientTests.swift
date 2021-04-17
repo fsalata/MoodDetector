@@ -10,7 +10,7 @@ import Combine
 @testable import MoodDetector
 
 class APIClientTests: XCTestCase {
-    var subscribers = Set<AnyCancellable>()
+    var subscriptions = Set<AnyCancellable>()
     
     var sut: APIClient!
     var session: URLSessionSpy!
@@ -23,7 +23,7 @@ class APIClientTests: XCTestCase {
     }
     
     override func tearDown() {
-        subscribers = []
+        subscriptions = []
         sut = nil
         session = nil
     }
@@ -48,7 +48,7 @@ class APIClientTests: XCTestCase {
             } receiveValue: { searchResult in
                 result = searchResult
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
 
         let request = session.dataTaskArgsRequest.first
         
@@ -77,7 +77,7 @@ class APIClientTests: XCTestCase {
             } receiveValue: { response in
                 result = response
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
         
         let request = session.dataTaskArgsRequest.first
         
@@ -103,7 +103,7 @@ class APIClientTests: XCTestCase {
             } receiveValue: { movies in
                 XCTFail()
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
         
         XCTAssertNotNil(result)
         XCTAssertEqual(result, APIError.network(.badURL))
@@ -127,7 +127,7 @@ class APIClientTests: XCTestCase {
             } receiveValue: { movies in
                 XCTFail()
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
         
         XCTAssertNotNil(result)
         XCTAssertEqual(result, APIError.service(.internalServerError))
@@ -152,7 +152,7 @@ class APIClientTests: XCTestCase {
             } receiveValue: { movies in
                 XCTFail()
             }
-            .store(in: &subscribers)
+            .store(in: &subscriptions)
         
         XCTAssertNotNil(result)
         XCTAssertEqual(result, APIError.parse(.dataCorrupted(debugDescription: "The given data was not valid JSON.")))

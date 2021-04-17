@@ -12,7 +12,7 @@ struct SearchResult: Decodable {
     let meta: Meta?
 }
 
-struct Tweet: Decodable {
+struct Tweet: Decodable, Equatable {
     let id: String
     let text: String
 }
