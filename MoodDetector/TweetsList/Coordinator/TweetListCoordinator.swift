@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class TweetListCoordinator: Coordinator {
+class TweetListCoordinator: Coordinator {
     var navigationController: UINavigationController
     
-    var viewModel: TweetListViewModel
+    private(set) var viewModel: TweetListViewModel
     
-    var moodResultCoordinator: MoodResultCoordinator!
+    private var moodResultCoordinator: MoodResultCoordinator!
     
     init(username: String, navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -23,10 +23,8 @@ final class TweetListCoordinator: Coordinator {
         let tweetListViewController = TweetListViewController(coordinator: self, viewModel: viewModel)
         navigationController.pushViewController(tweetListViewController, animated: true)
     }
-}
-
-// MARK: - View methods
-extension TweetListCoordinator {
+    
+    // MARK: - View methods
     func presentMoodResult(tweet: Tweet) {
         moodResultCoordinator = MoodResultCoordinator(tweet: tweet, navigationController: navigationController)
         moodResultCoordinator.start()

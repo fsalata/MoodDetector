@@ -29,6 +29,16 @@ func mockTweetResponse() -> Data {
            """.data(using: .utf8)!
 }
 
+func mockNoTweetsResponse() -> Data {
+    return  """
+            {
+                "meta" : {
+                    "result_count" : 0
+                }
+            }
+            """.data(using: .utf8)!
+}
+
 func mockEmptyResponse() -> Data {
     return  """
             {

@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 final class MoodResultViewModel {
-    var service: MoodService
+    private var service: MoodService
     
-    var tweet: Tweet
+    private(set) var tweet: Tweet
     
-    @Published var sentiment: String?
-    @Published var error: APIError?
+    @Published private(set) var sentiment: String?
+    @Published private(set) var error: APIError?
     
     private var subscriptions = Set<AnyCancellable>()
     

@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class MoodResultCoordinator: Coordinator {
+class MoodResultCoordinator: Coordinator {
     var navigationController: UINavigationController
     
-    var viewModel: MoodResultViewModel
+    private(set) var viewModel: MoodResultViewModel
     
     init(tweet: Tweet, navigationController: UINavigationController) {
         self.navigationController = navigationController

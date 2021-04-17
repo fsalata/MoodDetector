@@ -10,10 +10,10 @@ import Combine
 
 final class TweetListViewModel {
     let username: String
-    let service: TweetListService
+    private let service: TweetListService
     
-    @Published var tweets: [Tweet]?
-    @Published var error: APIError?
+    @Published private(set) var tweets: [Tweet]?
+    @Published private(set) var error: APIError?
     
     var meta: Meta?
     

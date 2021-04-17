@@ -16,10 +16,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     // Initial properties
-    var coordinator: SearchCoordinator
+    private var coordinator: SearchCoordinator
     
     // Subscriptions
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Init
     init(coordinator: SearchCoordinator) {

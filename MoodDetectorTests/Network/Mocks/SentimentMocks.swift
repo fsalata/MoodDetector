@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 func mockHappySentimentResponse() -> Data {
     return  """
             {

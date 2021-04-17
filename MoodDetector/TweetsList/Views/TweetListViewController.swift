@@ -12,8 +12,8 @@ class TweetListViewController: UIViewController, DataLoading {
     @IBOutlet weak var tableView: UITableView!
     
     // Inital properties
-    let coordinator: TweetListCoordinator
-    let viewModel: TweetListViewModel
+    private let coordinator: TweetListCoordinator
+    private let viewModel: TweetListViewModel
     
     // Subscriptions
     private var subscriptions = Set<AnyCancellable>()
@@ -60,9 +60,6 @@ class TweetListViewController: UIViewController, DataLoading {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
-        
-        feedbackView.configure(message: "Ocorreu um erro",
-                               buttonTitle: "Tentar novamente?")
         
         feedbackView.delegate = self
         
@@ -115,7 +112,7 @@ class TweetListViewController: UIViewController, DataLoading {
     
     private func showError(_ error: APIError?) {
         feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
-                               buttonTitle: "Tentar novamente?")
+                               buttonTitle: "Tentar novamente")
         
         state = .error(error)
     }

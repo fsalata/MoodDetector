@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SearchCoordinator: Coordinator {
+class SearchCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     var tweetListCoordinator: TweetListCoordinator!
@@ -20,10 +20,8 @@ final class SearchCoordinator: Coordinator {
         let searchViewController = SearchViewController(coordinator: self)
         navigationController.pushViewController(searchViewController, animated: false)
     }
-}
-
-// MARK: - View methods
-extension SearchCoordinator {
+    
+    // MARK: - View methods
     func presentTweetResult(for username: String) {
         tweetListCoordinator = TweetListCoordinator(username: username, navigationController: navigationController)
         tweetListCoordinator.start()

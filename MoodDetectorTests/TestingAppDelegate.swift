@@ -20,6 +20,8 @@ class TestingAppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        UIView.setAnimationsEnabled(false)
+        
         return true
     }
 }

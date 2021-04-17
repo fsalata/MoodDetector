@@ -26,7 +26,7 @@ class MoodResultViewController: UIViewController, DataLoading {
     var feedbackView = FeedbackView()
     
     // Subscriptions
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Init
     init(coordinator: MoodResultCoordinator, viewModel: MoodResultViewModel) {
@@ -90,7 +90,7 @@ class MoodResultViewController: UIViewController, DataLoading {
     // MARK: - Error handling
     private func showError(_ error: APIError?) {
         feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
-                               buttonTitle: "Tentar novamente?")
+                               buttonTitle: "Tentar novamente")
         
         state = .error(error)
     }
