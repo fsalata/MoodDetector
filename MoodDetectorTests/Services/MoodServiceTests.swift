@@ -84,7 +84,7 @@ class MoodServiceTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)
@@ -110,7 +110,7 @@ class MoodServiceTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)

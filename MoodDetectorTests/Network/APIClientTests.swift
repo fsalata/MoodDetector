@@ -100,7 +100,7 @@ class APIClientTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)
@@ -124,7 +124,7 @@ class APIClientTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)
@@ -149,7 +149,7 @@ class APIClientTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)

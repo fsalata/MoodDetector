@@ -42,7 +42,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8cS-FS-h5f">
                             <rect key="frame" x="16" y="36.5" width="350" height="40"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-Ef-HzR">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-Ef-HzR">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="rEy-aX-bv5"/>

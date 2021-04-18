@@ -31,7 +31,7 @@ func mockNeutralSentimentResponse() -> Data {
             """.data(using: .utf8)!
 }
 
-func mockFrustratedSentimentResponse() -> Data {
+func mockSadSentimentResponse() -> Data {
     return  """
             {
               "documentSentiment" : {

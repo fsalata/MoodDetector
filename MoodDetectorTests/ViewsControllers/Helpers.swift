@@ -7,6 +7,8 @@
 
 import UIKit
 
+let timeout = 0.1
+
 func tap(_ button: UIButton) {
     button.sendActions(for: .touchUpInside)
 }

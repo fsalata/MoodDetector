@@ -75,14 +75,15 @@ class TweetListViewControllerTests: XCTestCase {
         
         coordinator.session.data = mockNoTweetsResponse()
         
-        let promise = XCTKVOExpectation(keyPath: "text", object: sut.feedbackView.messageLabel!)
+        let promise = XCTKVOExpectation(keyPath: "text",
+                                        object: sut.feedbackView.messageLabel!,
+                                        expectedValue: expectedFeedbackMessage)
         
         sut.loadViewIfNeeded()
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
-        XCTAssertEqual(sut.feedbackView.messageLabel.text, expectedFeedbackMessage)
         XCTAssertEqual(sut.feedbackView.button.titleLabel?.text, expectedButtonTitle)
     }
     
@@ -92,14 +93,15 @@ class TweetListViewControllerTests: XCTestCase {
         
         coordinator.session.response = HTTPURLResponse(url: URL(string: MockAPI().baseURL)!, statusCode: 500, httpVersion: nil, headerFields: nil)
         
-        let promise = XCTKVOExpectation(keyPath: "text", object: sut.feedbackView.messageLabel!)
+        let promise = XCTKVOExpectation(keyPath: "text",
+                                        object: sut.feedbackView.messageLabel!,
+                                        expectedValue: expectedFeedbackMessage)
         
         sut.loadViewIfNeeded()
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
-        XCTAssertEqual(sut.feedbackView.messageLabel.text, expectedFeedbackMessage)
         XCTAssertEqual(sut.feedbackView.button.titleLabel?.text, expectedButtonTitle)
     }
     
@@ -112,7 +114,7 @@ class TweetListViewControllerTests: XCTestCase {
         
         sut.feedbackView.delegate = self
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
         

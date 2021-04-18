@@ -80,7 +80,7 @@ class TweetListTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)
@@ -104,7 +104,7 @@ class TweetListTests: XCTestCase {
                 default:
                     break
                 }
-            } receiveValue: { movies in
+            } receiveValue: { response in
                 XCTFail()
             }
             .store(in: &subscriptions)

@@ -15,6 +15,7 @@ class TweetsTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    // Configure cell
     func configure(tweet: Tweet) {
         tweetLabel.text = tweet.text
         

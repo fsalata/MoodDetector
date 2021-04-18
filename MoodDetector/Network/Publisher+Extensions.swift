@@ -31,6 +31,8 @@ extension Publisher where Output == URLResponseType {
             Swift.print("============================ REQUEST ============================")
             Swift.print("\nURL: \(request.url?.absoluteString ?? "")")
             
+            Swift.print("\nMETHOD: \(request.httpMethod ?? "")")
+            
             if let requestHeader = request.allHTTPHeaderFields {
                 if let data = try? JSONSerialization.data(withJSONObject: requestHeader, options: .prettyPrinted) {
                     Swift.print("\nHEADER: \(String(data: data, encoding: .utf8) ?? "")")
@@ -44,8 +46,6 @@ extension Publisher where Output == URLResponseType {
                     }
                 }
             }
-            
-            Swift.print("\nMETHOD: \(request.httpMethod ?? "")")
             
             Swift.print("\n============================ RESPONSE ============================")
             if let jsonObject = try? JSONSerialization.jsonObject(with: output.data) {

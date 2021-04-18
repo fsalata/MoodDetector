@@ -57,6 +57,7 @@ class SearchViewController: UIViewController {
         usernameTextField.delegate = self
     }
     
+    // MARK: - Animation
     private func prepareViewsForAnimation() {
         if let navigationBarHeight = navigationController?.navigationBar.frame.height {
             usernameTextField.alpha = 0

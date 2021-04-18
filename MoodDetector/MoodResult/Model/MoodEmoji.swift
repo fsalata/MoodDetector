@@ -10,5 +10,5 @@ import Foundation
 enum MoodEmoji: String {
     case happy = "😀"
     case neutral = "😐"
-    case frustrated = "☹️"
+    case sad = "☹️"
 }

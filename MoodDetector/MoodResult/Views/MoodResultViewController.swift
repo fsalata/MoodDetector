@@ -52,7 +52,7 @@ class MoodResultViewController: UIViewController, DataLoading {
     
     // MARK: - Private methodss
     private func setupView() {
-        title = "Resultado"
+        title = "Sentimento"
         
         feedbackView.delegate = self
         
@@ -84,6 +84,13 @@ class MoodResultViewController: UIViewController, DataLoading {
             
             self.emojiLabel.text = emoji
             self.state = .loaded
+            
+            UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.45,
+                                                           delay: 0,
+                                                           options: .curveEaseInOut) {
+                self.emojiLabel.alpha = 1
+            }
+
         }
     }
     

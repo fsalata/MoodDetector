@@ -50,12 +50,13 @@ class MoodResultViewControllerTests: XCTestCase {
     func test_showNeutralEmoji() {
         sut.loadViewIfNeeded()
         
-        let promise = XCTKVOExpectation(keyPath: "text", object: sut.emojiLabel!)
+        let promise = XCTKVOExpectation(keyPath: "text",
+                                        object: sut.emojiLabel!,
+                                        expectedValue: MoodEmoji.neutral.rawValue)
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
-        XCTAssertEqual(sut.emojiLabel.text, MoodEmoji.neutral.rawValue)
     }
     
     func test_showHappyEmoji() {
@@ -63,26 +64,27 @@ class MoodResultViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
-        let promise = XCTKVOExpectation(keyPath: "text", object: sut.emojiLabel!)
+        let promise = XCTKVOExpectation(keyPath: "text",
+                                        object: sut.emojiLabel!,
+                                        expectedValue: MoodEmoji.happy.rawValue)
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
-        
-        XCTAssertEqual(sut.emojiLabel.text, MoodEmoji.happy.rawValue)
     }
     
-    func test_showFrustratedEmoji() {
-        coordinator.session.data = mockFrustratedSentimentResponse()
+    func test_showSadEmoji() {
+        coordinator.session.data = mockSadSentimentResponse()
         
         sut.loadViewIfNeeded()
         
-        let promise = XCTKVOExpectation(keyPath: "text", object: sut.emojiLabel!)
+        let promise = XCTKVOExpectation(keyPath: "text",
+                                        object: sut.emojiLabel!,
+                                        expectedValue: MoodEmoji.sad.rawValue)
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
-        XCTAssertEqual(sut.emojiLabel.text, MoodEmoji.frustrated.rawValue)
     }
     
     func test_serviceError() {
@@ -91,14 +93,15 @@ class MoodResultViewControllerTests: XCTestCase {
         
         coordinator.session.response = HTTPURLResponse(url: URL(string: MockAPI().baseURL)!, statusCode: 500, httpVersion: nil, headerFields: nil)
         
-        let promise = XCTKVOExpectation(keyPath: "text", object: sut.feedbackView.messageLabel!)
+        let promise = XCTKVOExpectation(keyPath: "text",
+                                        object: sut.feedbackView.messageLabel!,
+                                        expectedValue: expectedFeedbackMessage)
         
         sut.loadViewIfNeeded()
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
-        XCTAssertEqual(sut.feedbackView.messageLabel.text, expectedFeedbackMessage)
         XCTAssertEqual(sut.feedbackView.button.titleLabel?.text, expectedButtonTitle)
     }
     
@@ -111,7 +114,7 @@ class MoodResultViewControllerTests: XCTestCase {
         
         sut.feedbackView.delegate = self
         
-        let result = XCTWaiter().wait(for: [promise], timeout: 1.0)
+        let result = XCTWaiter().wait(for: [promise], timeout: timeout)
         
         XCTAssertTrue(result == .completed)
         

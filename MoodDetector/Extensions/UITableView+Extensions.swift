@@ -24,8 +24,9 @@ extension UITableView {
     ///   - configure: closure to handle cell configuration
     /// - Returns: returns configured cell
     func dequeueCell<T: UITableViewCell>(of type: T.Type,
-                                                for indexPath: IndexPath,
-                                                configure: @escaping ((T) -> Void) = { _ in }) -> UITableViewCell {
+                                        for indexPath: IndexPath,
+                                        configure: @escaping ((T) -> Void) = { _ in }) -> UITableViewCell {
+        
         let cell = self.dequeueReusableCell(withIdentifier: String(describing: T.self), for: indexPath)
         
         if let cell = cell as? T {

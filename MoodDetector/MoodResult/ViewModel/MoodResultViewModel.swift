@@ -44,7 +44,7 @@ final class MoodResultViewModel {
         case 0.25...1:
             sentiment = MoodEmoji.happy.rawValue
         case -1.0...(-0.25):
-            sentiment = MoodEmoji.frustrated.rawValue
+            sentiment = MoodEmoji.sad.rawValue
         default:
             sentiment = MoodEmoji.neutral.rawValue
         }

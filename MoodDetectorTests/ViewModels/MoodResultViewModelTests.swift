@@ -75,10 +75,10 @@ class MoodResultViewModelTests: XCTestCase {
         XCTAssertNil(sut.error)
     }
     
-    func test_fetchFrustratedAnalysis_withSuccess() {
-        let expectedSentiment = MoodEmoji.frustrated.rawValue
+    func test_fetchSadAnalysis_withSuccess() {
+        let expectedSentiment = MoodEmoji.sad.rawValue
         
-        session.data = mockFrustratedSentimentResponse()
+        session.data = mockSadSentimentResponse()
         session.response = HTTPURLResponse(url: URL(string: MockAPI().baseURL)!, statusCode: 200, httpVersion: nil, headerFields: nil)
         
         sut.$sentiment

@@ -84,7 +84,7 @@ final class FeedbackView: UIView  {
     ///   - emoji: emoji to be shown (String)
     func configure(message: String,
                    buttonTitle: String,
-                   emoji: String = MoodEmoji.frustrated.rawValue) {
+                   emoji: String = MoodEmoji.sad.rawValue) {
         DispatchQueue.main.async {
             self.messageLabel.text = message
             self.emojiLabel.text = emoji
