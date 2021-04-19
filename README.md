@@ -13,4 +13,4 @@ Não foram utilizadas bibliotecas de terceiros.
 ![Vídeo](simulator.mp4)
 
 ## Testes
-O projeto tem cobertura de 85% de testes unitários.
+Cobertura de 85% em testes unitários.
