@@ -8,12 +8,12 @@
 import XCTest
 @testable import MoodDetector
 
-class SearchViewControllerTests: XCTestCase {
+final class SearchViewControllerTests: XCTestCase {
     
-    var sut: SearchViewController!
+    private var sut: SearchViewController!
     
-    var presentTweetResultCalled = false
-    var username = ""
+    private var presentTweetResultCalled = false
+    private var username = ""
     
     override func setUp() {
         super.setUp()

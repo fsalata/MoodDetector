@@ -8,12 +8,12 @@
 import XCTest
 @testable import MoodDetector
 
-class MoodResultViewControllerTests: XCTestCase {
+final class MoodResultViewControllerTests: XCTestCase {
 
-    var sut: MoodResultViewController!
-    var coordinator: MockMoodResultCoordinator!
+    private var sut: MoodResultViewController!
+    private var coordinator: MockMoodResultCoordinator!
     
-    var feedbackViewButtonTapped = false
+    private var feedbackViewButtonTapped = false
     
     override func setUp() {
         super.setUp()

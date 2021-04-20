@@ -8,15 +8,15 @@
 import XCTest
 @testable import MoodDetector
 
-class TweetListViewControllerTests: XCTestCase {
+final class TweetListViewControllerTests: XCTestCase {
 
-    var sut: TweetListViewController!
-    var coordinator: MockTweetListCoordinator!
+    private var sut: TweetListViewController!
+    private var coordinator: MockTweetListCoordinator!
     
-    var presentMoodResultCalled = false
-    var tweet: Tweet?
+    private var presentMoodResultCalled = false
+    private var tweet: Tweet?
     
-    var feedbackViewButtonTapped = false
+    private var feedbackViewButtonTapped = false
     
     override func setUp() {
         super.setUp()

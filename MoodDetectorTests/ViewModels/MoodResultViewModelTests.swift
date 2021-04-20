@@ -9,11 +9,11 @@ import XCTest
 @testable import MoodDetector
 import Combine
 
-class MoodResultViewModelTests: XCTestCase {
-    var subscriptions = Set<AnyCancellable>()
+final class MoodResultViewModelTests: XCTestCase {
+    private var subscriptions = Set<AnyCancellable>()
     
-    var sut: MoodResultViewModel!
-    var session: URLSessionSpy!
+    private var sut: MoodResultViewModel!
+    private var session: URLSessionSpy!
     
     override func setUp() {
         super.setUp()
@@ -27,7 +27,7 @@ class MoodResultViewModelTests: XCTestCase {
     }
     
     override func tearDown() {
-        subscriptions = []
+        subscriptions.removeAll()
         sut = nil
         session = nil
         

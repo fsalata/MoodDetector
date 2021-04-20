@@ -9,11 +9,11 @@ import XCTest
 @testable import MoodDetector
 import Combine
 
-class TweetListTests: XCTestCase {
-    var subscriptions = Set<AnyCancellable>()
+final class TweetListTests: XCTestCase {
+    private var subscriptions = Set<AnyCancellable>()
     
-    var sut: TweetListService!
-    var session: URLSessionSpy!
+    private var sut: TweetListService!
+    private var session: URLSessionSpy!
     
     override func setUp() {
         super.setUp()
@@ -25,7 +25,7 @@ class TweetListTests: XCTestCase {
     }
     
     override func tearDown() {
-        subscriptions = []
+        subscriptions.removeAll()
         sut = nil
         session = nil
         

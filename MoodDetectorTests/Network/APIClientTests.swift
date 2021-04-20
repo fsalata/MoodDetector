@@ -9,11 +9,11 @@ import XCTest
 import Combine
 @testable import MoodDetector
 
-class APIClientTests: XCTestCase {
-    var subscriptions = Set<AnyCancellable>()
+final class APIClientTests: XCTestCase {
+    private var subscriptions = Set<AnyCancellable>()
     
-    var sut: APIClient!
-    var session: URLSessionSpy!
+    private var sut: APIClient!
+    private var session: URLSessionSpy!
     
     override func setUp() {
         super.setUp()
@@ -23,7 +23,7 @@ class APIClientTests: XCTestCase {
     }
     
     override func tearDown() {
-        subscriptions = []
+        subscriptions.removeAll()
         sut = nil
         session = nil
         
