@@ -50,6 +50,14 @@ class TweetListViewController: UIViewController, DataLoading {
         fetchTweets()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if (isBeingDismissed || isMovingFromParent) {
+            subscriptions.removeAll()
+        }
+    }
+    
     // MARK: - Private methods
     private func setupView() {
         navigationItem.backButtonDisplayMode = .minimal

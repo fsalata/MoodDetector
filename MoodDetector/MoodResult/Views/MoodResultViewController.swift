@@ -50,6 +50,14 @@ class MoodResultViewController: UIViewController, DataLoading {
         fetchAnalysis()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if (isBeingDismissed || isMovingFromParent) {
+            subscriptions.removeAll()
+        }
+    }
+    
     // MARK: - Private methodss
     private func setupView() {
         title = "Sentimento"
