@@ -99,4 +99,14 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         errorMessageLabel.isHidden = true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let text = textField.text,
+           !text.isEmpty {
+            search(textField)
+        }
+        
+        textField.resignFirstResponder()
+        return true
+    }
 }
