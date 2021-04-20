@@ -10,6 +10,7 @@ import Combine
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var contenStackView: UIStackView!
     @IBOutlet weak var searchInfoLabel: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var searchButton: RoundButton!
@@ -37,6 +38,18 @@ class SearchViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -52,6 +65,15 @@ class SearchViewController: UIViewController {
         prepareViewsForAnimation()
         
         usernameTextField.delegate = self
+        
+        let hideKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        view.addGestureRecognizer(hideKeyboardTap)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Animation
@@ -78,6 +100,25 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // MARK: - Handle keyboard
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        if contenStackView.frame.intersects(keyboardFrame) {
+            self.view.frame.origin.y = keyboardFrame.origin.y - contenStackView.frame.maxY - 16
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        guard self.view.frame.origin.y < 0 else { return }
+        
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
     // MARK: - Actions
     @IBAction func search(_ sender: Any) {
         guard let username = usernameTextField.text,
@@ -88,7 +129,7 @@ class SearchViewController: UIViewController {
         
         if let username = usernameTextField.text,
            !username.isEmpty {
-            usernameTextField.resignFirstResponder()
+            hideKeyboard()
             coordinator.presentTweetResult(for: username)
         }
     }
@@ -106,7 +147,7 @@ extension SearchViewController: UITextFieldDelegate {
             search(textField)
         }
         
-        textField.resignFirstResponder()
+        hideKeyboard()
         return true
     }
 }
