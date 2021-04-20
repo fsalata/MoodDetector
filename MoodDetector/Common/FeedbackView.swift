@@ -12,14 +12,14 @@ protocol FeedbackViewDelegate: AnyObject {
 }
 
 final class FeedbackView: UIView  {
-    lazy var emojiLabel: UILabel = {
+    lazy private(set) var emojiLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue", size: 120.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var messageLabel: UILabel! = {
+    lazy private(set) var messageLabel: UILabel! = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue", size: 14.0)
         label.numberOfLines = 0
@@ -28,7 +28,7 @@ final class FeedbackView: UIView  {
         return label
     }()
     
-    lazy var button: RoundButton = {
+    lazy private(set) var button: RoundButton = {
         let button = RoundButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
@@ -76,7 +76,6 @@ final class FeedbackView: UIView  {
         self.button.addTarget(self, action: #selector(self.handleButtonTap(sender:)), for: .touchUpInside)
     }
     
-    
     /// Configure view labels
     /// - Parameters:
     ///   - message: feedback message
@@ -92,7 +91,6 @@ final class FeedbackView: UIView  {
         }
     }
     
-    
     /// Show feedback
     /// - Parameters:
     ///   - view: view where feedback will be added
@@ -102,7 +100,6 @@ final class FeedbackView: UIView  {
         
         self.pinEdgesToSuperview()
     }
-    
     
     /// Remove feedback
     /// - Parameter view: view where feedback will be removed from

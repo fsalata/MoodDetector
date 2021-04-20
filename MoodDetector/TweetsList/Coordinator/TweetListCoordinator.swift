@@ -12,8 +12,6 @@ class TweetListCoordinator: Coordinator {
     
     private(set) var viewModel: TweetListViewModel
     
-    private var moodResultCoordinator: MoodResultCoordinator!
-    
     init(username: String, navigationController: UINavigationController) {
         self.navigationController = navigationController
         viewModel = TweetListViewModel(username: username)
@@ -26,7 +24,7 @@ class TweetListCoordinator: Coordinator {
     
     // MARK: - View methods
     func presentMoodResult(tweet: Tweet) {
-        moodResultCoordinator = MoodResultCoordinator(tweet: tweet, navigationController: navigationController)
+        let moodResultCoordinator = MoodResultCoordinator(tweet: tweet, navigationController: navigationController)
         moodResultCoordinator.start()
     }
 }

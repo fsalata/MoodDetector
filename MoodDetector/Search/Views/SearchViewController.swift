@@ -16,10 +16,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     // Initial properties
-    private var coordinator: SearchCoordinator
-    
-    // Subscriptions
-    private var subscriptions = Set<AnyCancellable>()
+    private let coordinator: SearchCoordinator
     
     // MARK: - Init
     init(coordinator: SearchCoordinator) {
@@ -91,6 +88,7 @@ class SearchViewController: UIViewController {
         
         if let username = usernameTextField.text,
            !username.isEmpty {
+            usernameTextField.resignFirstResponder()
             coordinator.presentTweetResult(for: username)
         }
     }

@@ -10,19 +10,20 @@ import Combine
 
 final class MoodResultViewModel {
     private var service: MoodService
+    private var subscriptions = Set<AnyCancellable>()
     
     private(set) var tweet: Tweet
     
     @Published private(set) var sentiment: String?
     @Published private(set) var error: APIError?
     
-    private var subscriptions = Set<AnyCancellable>()
-    
+    // Init
     init(tweet: Tweet, service: MoodService = MoodService()) {
         self.service = service
         self.tweet = tweet
     }
     
+    // MARK: - Fetch analysis
     func fetchAnalysis() {
         service.analyzeTweetMood(tweet: tweet)
             .sink { [weak self] completion in
@@ -39,6 +40,7 @@ final class MoodResultViewModel {
             .store(in: &subscriptions)
     }
     
+    // Private methods
     private func analyzeMoodResult(_ documentSentiment: DocumentSentiment) {
         switch documentSentiment.score {
         case 0.25...1:

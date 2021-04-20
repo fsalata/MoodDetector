@@ -9,21 +9,23 @@ import Foundation
 import Combine
 
 final class TweetListViewModel {
-    let username: String
     private let service: TweetListService
+    private var subscriptions = Set<AnyCancellable>()
+    
+    let username: String
     
     @Published private(set) var tweets: [Tweet]?
     @Published private(set) var error: APIError?
     
     var meta: Meta?
     
-    private var subscriptions = Set<AnyCancellable>()
-    
+    // Init
     init(username: String, service: TweetListService = TweetListService()) {
         self.username = username
         self.service = service
     }
     
+    // MARK: - Fetch user tweets
     func fetchUserTweets() {
         service.fetchUserRecentTweets(username: username)
             .sink { [weak self] completion in

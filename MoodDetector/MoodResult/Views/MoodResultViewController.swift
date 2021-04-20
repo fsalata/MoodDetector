@@ -15,6 +15,9 @@ class MoodResultViewController: UIViewController, DataLoading {
     private var coordinator: MoodResultCoordinator
     private var viewModel: MoodResultViewModel
     
+    // Subscriptions
+    private var subscriptions = Set<AnyCancellable>()
+    
     // MARK: - Data Loading properties
     var state: ViewState = .loading {
         didSet {
@@ -24,9 +27,6 @@ class MoodResultViewController: UIViewController, DataLoading {
     
     var loadingView = LoadingView()
     var feedbackView = FeedbackView()
-    
-    // Subscriptions
-    private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Init
     init(coordinator: MoodResultCoordinator, viewModel: MoodResultViewModel) {
