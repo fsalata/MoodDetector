@@ -12,8 +12,8 @@ class MoodResultViewController: UIViewController, DataLoading {
     @IBOutlet weak var emojiLabel: UILabel!
     
     // Initial properties
-    private var coordinator: MoodResultCoordinator
-    private var viewModel: MoodResultViewModel
+    private let coordinator: MoodResultCoordinator
+    private let viewModel: MoodResultViewModel
     
     // Subscriptions
     private var subscriptions = Set<AnyCancellable>()
