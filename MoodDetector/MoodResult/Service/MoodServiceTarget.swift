@@ -28,7 +28,7 @@ extension MoodServiceTarget {
         var parameters: [String : String] = [:]
         switch self {
         case .analyze:
-            parameters["key"] = "\(APIKeys.google.rawValue)"
+            parameters["key"] = "\(APIKeys.google)"
         }
         
         return parameters

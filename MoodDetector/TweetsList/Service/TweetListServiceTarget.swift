@@ -21,7 +21,7 @@ extension TweetListServiceTarget {
     }
     
     var header: [String : String]? {
-        ["Authorization": "Bearer \(APIKeys.twitter.rawValue)"]
+        ["Authorization": "Bearer \(APIKeys.twitter)"]
     }
     
     var parameters: JSON? {

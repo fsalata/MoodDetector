@@ -32,6 +32,7 @@ DerivedData/
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
+*.DS_Store
 
 ### API keys file ###
 MoodDetector/Network/API/keys.swift

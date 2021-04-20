@@ -14,3 +14,8 @@ struct TwitterAPI: APIProtocol {
 struct GoogleAPI: APIProtocol {
     let baseURL = "https://language.googleapis.com"
 }
+
+protocol APIKeysProtocol {
+    static var twitter: String { get }
+    static var google: String { get }
+}
