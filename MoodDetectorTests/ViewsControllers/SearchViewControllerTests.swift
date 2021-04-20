@@ -16,6 +16,8 @@ class SearchViewControllerTests: XCTestCase {
     var username = ""
     
     override func setUp() {
+        super.setUp()
+        
         let coordinator = MockSearchCoordinator(navigationController: UINavigationController())
         coordinator.delegate = self
         coordinator.start()
@@ -29,6 +31,8 @@ class SearchViewControllerTests: XCTestCase {
         sut = nil
         presentTweetResultCalled = false
         username = ""
+        
+        super.tearDown()
     }
     
     func test_outlets_notNil() {

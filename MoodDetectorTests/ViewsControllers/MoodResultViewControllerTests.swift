@@ -16,6 +16,8 @@ class MoodResultViewControllerTests: XCTestCase {
     var feedbackViewButtonTapped = false
     
     override func setUp() {
+        super.setUp()
+        
         coordinator = MockMoodResultCoordinator(tweet: Tweet(id: "1", text: "olá"), navigationController: UINavigationController())
         coordinator.start()
         
@@ -31,6 +33,8 @@ class MoodResultViewControllerTests: XCTestCase {
         sut = nil
         coordinator = nil
         feedbackViewButtonTapped = false
+        
+        super.tearDown()
     }
 
     func test_Outlets_notNil() {

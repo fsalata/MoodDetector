@@ -26,6 +26,8 @@ class APIClientTests: XCTestCase {
         subscriptions = []
         sut = nil
         session = nil
+        
+        super.tearDown()
     }
     
 

@@ -16,6 +16,8 @@ class TweetListViewModelTests: XCTestCase {
     var session: URLSessionSpy!
     
     override func setUp() {
+        super.setUp()
+        
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
         let service = TweetListService()
@@ -26,9 +28,10 @@ class TweetListViewModelTests: XCTestCase {
     
     override func tearDown() {
         subscriptions = []
-        
         sut = nil
         session = nil
+        
+        super.tearDown()
     }
 
     func test_usernama_withSuccess() {

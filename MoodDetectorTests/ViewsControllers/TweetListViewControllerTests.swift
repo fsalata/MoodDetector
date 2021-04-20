@@ -19,6 +19,8 @@ class TweetListViewControllerTests: XCTestCase {
     var feedbackViewButtonTapped = false
     
     override func setUp() {
+        super.setUp()
+        
         coordinator = MockTweetListCoordinator(username: "binccp", navigationController: UINavigationController())
         coordinator.delegate = self
         coordinator.start()
@@ -37,6 +39,8 @@ class TweetListViewControllerTests: XCTestCase {
         presentMoodResultCalled = false
         tweet = nil
         feedbackViewButtonTapped = false
+        
+        super.tearDown()
     }
     
     func test_Outlets_notNil() {

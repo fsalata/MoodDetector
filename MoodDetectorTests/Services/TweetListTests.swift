@@ -28,6 +28,8 @@ class TweetListTests: XCTestCase {
         subscriptions = []
         sut = nil
         session = nil
+        
+        super.tearDown()
     }
     
     func test_fetchUserTweets_withSuccess() throws {
