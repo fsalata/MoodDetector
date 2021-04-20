@@ -9,8 +9,11 @@ A camada de rede foi implementada inicialmente em outro projeto pessoal e adicio
 ## Bibliotecas
 Não foram utilizadas bibliotecas de terceiros.
 
+## Execução
+É necessário incluir uma classe `APIKeys` que implementa o protocolo `APIKeysProtocol` no projeto com as chaves de segurança das API do Twitter e Google.
+
 ## Demo
 ![Vídeo](simulator.mp4)
 
 ## Testes
-Cobertura de 85% em testes unitários.
+Cobertura de 83% em testes unitários.
