@@ -50,19 +50,11 @@ class TweetListViewController: UIViewController, DataLoading {
         fetchTweets()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if (isBeingDismissed || isMovingFromParent) {
-            subscriptions.removeAll()
-        }
-    }
-    
     // MARK: - Private methods
     private func setupView() {
         navigationItem.backButtonDisplayMode = .minimal
         
-        title = "\(viewModel.username) tweets".capitalized
+        title = "\(viewModel.username.capitalized) \(TweetListStrings.title)"
         
         tableView.registerCell(of: TweetsTableViewCell.self)
         tableView.dataSource = self
@@ -72,14 +64,16 @@ class TweetListViewController: UIViewController, DataLoading {
         feedbackView.delegate = self
         
         viewModel.$tweets
-            .sink { tweets in
+            .sink {[weak self] tweets in
+                guard let self = self else { return }
                 self.handleDataChanged()
             }
             .store(in: &subscriptions)
         
         viewModel.$error
-            .sink { error in
-                guard error != nil else { return }
+            .sink {[weak self] error in
+                guard let self = self,
+                      error != nil else { return }
                 self.showError(error)
             }
             .store(in: &subscriptions)
@@ -112,15 +106,15 @@ class TweetListViewController: UIViewController, DataLoading {
     
     // MARK: - Error handling
     private func showUserNotFoundFeedback() {
-        feedbackView.configure(message: "Não foram encontrados resultados",
-                               buttonTitle: "Voltar")
+        feedbackView.configure(message: TweetListStrings.NotFoundError.message,
+                               buttonTitle: TweetListStrings.NotFoundError.buttonTitle)
         
         state = .error(nil)
     }
     
     private func showError(_ error: APIError?) {
-        feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
-                               buttonTitle: "Tentar novamente")
+        feedbackView.configure(message: TweetListStrings.ServiceError.message,
+                               buttonTitle: TweetListStrings.ServiceError.buttonTitle)
         
         state = .error(error)
     }

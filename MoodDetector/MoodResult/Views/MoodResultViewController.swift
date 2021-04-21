@@ -60,7 +60,7 @@ class MoodResultViewController: UIViewController, DataLoading {
     
     // MARK: - Private methodss
     private func setupView() {
-        title = "Sentimento"
+        title = MoodResultStrings.title
         
         feedbackView.delegate = self
         
@@ -73,8 +73,9 @@ class MoodResultViewController: UIViewController, DataLoading {
             .store(in: &subscriptions)
         
         viewModel.$error
-            .sink { error in
-                guard error != nil else { return }
+            .sink { [weak self] error in
+                guard let self = self,
+                      error != nil else { return }
                 self.showError(error)
             }
             .store(in: &subscriptions)
@@ -104,8 +105,8 @@ class MoodResultViewController: UIViewController, DataLoading {
     
     // MARK: - Error handling
     private func showError(_ error: APIError?) {
-        feedbackView.configure(message: "Ocorreu um erro com a sua solicitação",
-                               buttonTitle: "Tentar novamente")
+        feedbackView.configure(message: MoodResultStrings.ServiceError.message,
+                               buttonTitle: MoodResultStrings.ServiceError.buttonTitle)
         
         state = .error(error)
     }

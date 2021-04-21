@@ -12,6 +12,9 @@
 		001CA040262742B200C0EB29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001CA03E262742B200C0EB29 /* LaunchScreen.storyboard */; };
 		002464FF262B25B2009990F2 /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002464FE262B25B2009990F2 /* SearchViewControllerTests.swift */; };
 		003A216A262B45E5003932BA /* TweetMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FA842E2629F9FA008758BD /* TweetMocks.swift */; };
+		005964ED263053D400836C7C /* SearchStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005964EC263053D400836C7C /* SearchStrings.swift */; };
+		005964F32630553200836C7C /* TweetListStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005964F22630553200836C7C /* TweetListStrings.swift */; };
+		005964F72630561800836C7C /* MoodResultStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005964F62630561800836C7C /* MoodResultStrings.swift */; };
 		0062BDB22627462500F58F1B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDB12627462500F58F1B /* Coordinator.swift */; };
 		0062BDB92627466C00F58F1B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062BDB72627466C00F58F1B /* SearchViewController.swift */; };
 		0062BDBA2627466C00F58F1B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0062BDB82627466C00F58F1B /* SearchViewController.xib */; };
@@ -87,6 +90,9 @@
 		001CA046262742B200C0EB29 /* MoodDetectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodDetectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		001CA04C262742B200C0EB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002464FE262B25B2009990F2 /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
+		005964EC263053D400836C7C /* SearchStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStrings.swift; sourceTree = "<group>"; };
+		005964F22630553200836C7C /* TweetListStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetListStrings.swift; sourceTree = "<group>"; };
+		005964F62630561800836C7C /* MoodResultStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodResultStrings.swift; sourceTree = "<group>"; };
 		0062BDB12627462500F58F1B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0062BDB72627466C00F58F1B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0062BDB82627466C00F58F1B /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -223,6 +229,14 @@
 			path = ViewsControllers;
 			sourceTree = "<group>";
 		};
+		005964EB263053C700836C7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				005964EC263053D400836C7C /* SearchStrings.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0062BDA8262745DE00F58F1B /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +270,7 @@
 		0062BDAB262745F600F58F1B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				005964EB263053C700836C7C /* Model */,
 				0062BDAE2627460A00F58F1B /* Coordinator */,
 				0062BDAC262745FF00F58F1B /* Views */,
 			);
@@ -356,6 +371,7 @@
 				008336E326279336004B38E6 /* SentimentPayload.swift */,
 				008336D726279269004B38E6 /* SentimentResult.swift */,
 				00BC50E72628BF5100E07C5F /* MoodEmoji.swift */,
+				005964F62630561800836C7C /* MoodResultStrings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -411,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				008336C826278F6C004B38E6 /* Tweets.swift */,
+				005964F22630553200836C7C /* TweetListStrings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,6 +598,7 @@
 				0062BDD82627483A00F58F1B /* ServiceTargetProtocol.swift in Sources */,
 				00691299262F4B6100580119 /* Keys.swift in Sources */,
 				008336DE262792D7004B38E6 /* MoodServiceTarget.swift in Sources */,
+				005964ED263053D400836C7C /* SearchStrings.swift in Sources */,
 				0088180026287D8100B1C1CD /* TweetsTableViewCell.swift in Sources */,
 				008D589E2628A8B200E8323F /* DataLoading.swift in Sources */,
 				008336C926278F6C004B38E6 /* Tweets.swift in Sources */,
@@ -607,12 +625,14 @@
 				00BC50FC2629BD7300E07C5F /* MoodResultCoordinator.swift in Sources */,
 				0062BDD32627483A00F58F1B /* Publisher+Extensions.swift in Sources */,
 				008336CD26279098004B38E6 /* AppCoordiantor.swift in Sources */,
+				005964F32630553200836C7C /* TweetListStrings.swift in Sources */,
 				0083370726286AD2004B38E6 /* TweetListCoordinator.swift in Sources */,
 				0062BDDA2627483A00F58F1B /* URLSessionProtocol.swift in Sources */,
 				0062BDD62627483A00F58F1B /* API.swift in Sources */,
 				008336EC2627954B004B38E6 /* MoodService.swift in Sources */,
 				0062BDD92627483A00F58F1B /* APIProtocol.swift in Sources */,
 				0062BDD12627483A00F58F1B /* APIError.swift in Sources */,
+				005964F72630561800836C7C /* MoodResultStrings.swift in Sources */,
 				008D58A62628A8E600E8323F /* FeedbackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,9 +47,11 @@ final class SearchViewControllerTests: XCTestCase {
     
     func test_componentsInitalValues() {
         let expectedMessage = "Pesquisar tweets do usuário:"
+        let expectedTitle = "Mood Detector"
         
         sut.loadViewIfNeeded()
         
+        XCTAssertEqual(sut.title, expectedTitle)
         XCTAssertEqual(sut.searchInfoLabel.text, expectedMessage)
         XCTAssertTrue(sut.usernameTextField.text?.isEmpty ?? false)
         XCTAssertTrue(sut.errorMessageLabel.isHidden)

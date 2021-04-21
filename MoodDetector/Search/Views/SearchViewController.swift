@@ -55,12 +55,20 @@ class SearchViewController: UIViewController {
         
         animateViews()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self)
+    }
 
     // MARK: - Private methods
     private func setupView() {
         navigationItem.backButtonDisplayMode = .minimal
         
-        title = "Mood Detector"
+        title = SearchStrings.title
+        
+        setLabels()
         
         prepareViewsForAnimation()
         
@@ -70,10 +78,11 @@ class SearchViewController: UIViewController {
         view.addGestureRecognizer(hideKeyboardTap)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        NotificationCenter.default.removeObserver(self)
+    private func setLabels() {
+        searchInfoLabel.text = SearchStrings.searchInfoText
+        usernameTextField.placeholder = SearchStrings.searchPlaceholderText
+        searchButton.setTitle(SearchStrings.buttonTitleText, for: .normal)
+        errorMessageLabel.text = SearchStrings.errorMessageText
     }
     
     // MARK: - Animation

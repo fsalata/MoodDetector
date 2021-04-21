@@ -50,8 +50,11 @@ final class TweetListViewControllerTests: XCTestCase {
     }
     
     func test_initalState() {
+        let expectedTitle = "Binccp tweets"
+        
         sut.loadViewIfNeeded()
         
+        XCTAssertEqual(sut.title, expectedTitle)
         XCTAssertEqual(sut.state, ViewState.loading)
         XCTAssertFalse(sut.view.subviews.contains(sut.feedbackView))
         XCTAssertFalse(sut.view.subviews.contains(sut.loadingView))
