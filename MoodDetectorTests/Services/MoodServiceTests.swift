@@ -34,7 +34,7 @@ final class MoodServiceTests: XCTestCase {
     func test_fetchUserTweets_withSuccess() throws {
         let tweet = Tweet(id: "1", text: "Olá")
         
-        let expectedURL = "https://mock.com//v1beta2/documents:analyzeSentiment?key=AIzaSyCrthPxP76XUOwmpvix289aioLK9yUfBRk"
+        let expectedURL = "https://mock.com/v1beta2/documents:analyzeSentiment"
         let expectedMagnitude = 1.3999999999999999
         let expetedScore = 0.69999999999999996
         
@@ -62,7 +62,10 @@ final class MoodServiceTests: XCTestCase {
         
         XCTAssertEqual(request?.httpMethod, RequestMethod.POST.rawValue)
         let url = try XCTUnwrap(request?.url)
-        XCTAssertEqual(url.absoluteString, expectedURL)
+        
+        let components = url.absoluteString.components(separatedBy: "?")
+        XCTAssertEqual(components.first, expectedURL)
+        
         XCTAssertNotNil(result)
         XCTAssertEqual(result?.documentSentiment.magnitude, expectedMagnitude)
         XCTAssertEqual(result?.documentSentiment.score, expetedScore)

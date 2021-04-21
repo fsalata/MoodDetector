@@ -160,7 +160,3 @@ final class APIClientTests: XCTestCase {
         XCTAssertEqual(result, APIError.parse(.dataCorrupted(debugDescription: "The given data was not valid JSON.")))
     }
 }
-
-struct MockAPI: APIProtocol {
-    let baseURL = "https://mock.com/"
-}

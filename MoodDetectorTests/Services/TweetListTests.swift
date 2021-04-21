@@ -32,7 +32,7 @@ final class TweetListTests: XCTestCase {
     }
     
     func test_fetchUserTweets_withSuccess() throws {
-        let expectedURL = "https://mock.com//2/tweets/search/recent?query=from:binccp"
+        let expectedURL = "https://mock.com/2/tweets/search/recent?query=from:binccp"
         let expectedText = "Wishing a safe and peaceful month of Ramadan to all those observing around the world. Ramadan Mubarak!"
         
         session.data = mockTweetResponse()

@@ -8,13 +8,17 @@
 import Foundation
 @testable import MoodDetector
 
+struct MockAPI: APIProtocol {
+    let baseURL = "https://mock.com"
+}
+
 enum MockGETServiceTarget: ServiceTargetProtocol {
     case mock(page: Int)
 }
 
 extension MockGETServiceTarget {
     var path: String {
-        "mock/mocking"
+        "/mock/mocking"
     }
     
     var method: RequestMethod {
@@ -49,7 +53,7 @@ enum MockPOSTServiceTarget: ServiceTargetProtocol {
 
 extension MockPOSTServiceTarget {
     var path: String {
-        "mock/mocking"
+        "/mock/mocking"
     }
     
     var method: RequestMethod {
@@ -71,3 +75,4 @@ extension MockPOSTServiceTarget {
         return mockSentimentPayload()
     }
 }
+
