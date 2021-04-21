@@ -20,8 +20,7 @@ final class TweetListTests: XCTestCase {
         
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        sut = TweetListService()
-        sut.client = client
+        sut = TweetListService(client: client)
     }
     
     override func tearDown() {

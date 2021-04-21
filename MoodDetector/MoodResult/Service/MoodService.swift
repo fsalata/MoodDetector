@@ -9,7 +9,11 @@ import Foundation
 import Combine
 
 final class MoodService {
-    var client = APIClient(api: GoogleAPI())
+    private var client: APIClient
+    
+    init(client: APIClient = APIClient(api: GoogleAPI())) {
+        self.client = client
+    }
     
     func analyzeTweetMood(tweet: Tweet) -> AnyPublisher<SentimentResult, APIError> {
         let document = Document(type: .plain, content: tweet.text)

@@ -143,8 +143,7 @@ class MockMoodResultCoordinator: MoodResultCoordinator {
     override var viewModel: MoodResultViewModel {
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        let service = MoodService()
-        service.client = client
+        let service = MoodService(client: client)
         
         return MoodResultViewModel(tweet: Tweet(id: "1", text: "olá"), service: service)
     }

@@ -20,8 +20,7 @@ final class MoodServiceTests: XCTestCase {
         
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        sut = MoodService()
-        sut.client = client
+        sut = MoodService(client: client)
     }
     
     override func tearDown() {

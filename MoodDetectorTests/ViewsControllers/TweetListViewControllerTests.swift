@@ -165,8 +165,7 @@ class MockTweetListCoordinator: TweetListCoordinator {
     override var viewModel: TweetListViewModel {
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        let service = TweetListService()
-        service.client = client
+        let service = TweetListService(client: client)
         
         return TweetListViewModel(username: "binccp", service: service)
     }

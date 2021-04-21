@@ -20,8 +20,7 @@ final class MoodResultViewModelTests: XCTestCase {
         
         session = URLSessionSpy()
         let client = APIClient(session: session, api: MockAPI())
-        let service = MoodService()
-        service.client = client
+        let service = MoodService(client: client)
         
         sut = MoodResultViewModel(tweet: Tweet(id: "1", text: "olá"), service: service)
     }
