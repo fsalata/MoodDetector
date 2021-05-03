@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MoodServiceTarget: ServiceTargetProtocol{
+enum MoodServiceTarget: ServiceTargetProtocol {
     case analyze(document: SentimentPayload)
 }
 
@@ -15,25 +15,25 @@ extension MoodServiceTarget {
     var path: String {
         "/v1beta2/documents:analyzeSentiment"
     }
-    
+
     var method: RequestMethod {
         .POST
     }
-    
-    var header: [String : String]? {
+
+    var header: [String: String]? {
         return ["Content-Type": "application/json"]
     }
-    
+
     var parameters: JSON? {
-        var parameters: [String : String] = [:]
+        var parameters: [String: String] = [:]
         switch self {
         case .analyze:
             parameters["key"] = "\(APIKeys.google)"
         }
-        
+
         return parameters
     }
-    
+
     var body: Data? {
         switch self {
         case .analyze(let document):
@@ -41,5 +41,3 @@ extension MoodServiceTarget {
         }
     }
 }
-
-

@@ -11,7 +11,7 @@ protocol DataLoading {
     var state: ViewState { get set }
     var loadingView: LoadingView { get }
     var feedbackView: FeedbackView { get }
-    
+
     func update()
 }
 
@@ -28,11 +28,11 @@ extension DataLoading where Self: UIViewController {
             case .loading:
                 self.loadingView.show(in: self.view)
                 self.feedbackView.remove(from: self.view)
-                
+
             case .error(let error):
                 self.loadingView.remove(from: self.view)
                 self.feedbackView.show(in: self.view, with: error)
-                
+
             case .loaded:
                 self.loadingView.remove(from: self.view)
                 self.feedbackView.remove(from: self.view)

@@ -20,28 +20,28 @@ extension MockGETServiceTarget {
     var path: String {
         "/mock/mocking"
     }
-    
+
     var method: RequestMethod {
         .GET
     }
-    
+
     var header: [String: String]? {
         [
             "Accept": "application/json",
             "Content-Type": "application/json"
         ]
     }
-    
+
     var parameters: JSON? {
         var parameters: JSON = [:]
         switch self {
         case let .mock(page):
             parameters["page"] = "\(page)"
         }
-        
+
         return parameters
     }
-    
+
     var body: Data? {
         return nil
     }
@@ -55,24 +55,23 @@ extension MockPOSTServiceTarget {
     var path: String {
         "/mock/mocking"
     }
-    
+
     var method: RequestMethod {
         .POST
     }
-    
+
     var header: [String: String]? {
         [
             "Accept": "application/json",
             "Content-Type": "application/json"
         ]
     }
-    
+
     var parameters: JSON? {
         return nil
     }
-    
+
     var body: Data? {
         return mockSentimentPayload()
     }
 }
-

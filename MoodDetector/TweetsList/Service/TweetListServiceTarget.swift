@@ -15,27 +15,26 @@ extension TweetListServiceTarget {
     var path: String {
         "/2/tweets/search/recent"
     }
-    
+
     var method: RequestMethod {
         .GET
     }
-    
-    var header: [String : String]? {
+
+    var header: [String: String]? {
         ["Authorization": "Bearer \(APIKeys.twitter)"]
     }
-    
+
     var parameters: JSON? {
-        var parameters: [String : String] = [:]
+        var parameters: [String: String] = [:]
         switch self {
         case let .search(username):
             parameters["query"] = "from:\(username)"
         }
-        
+
         return parameters
     }
-    
+
     var body: Data? {
         return nil
     }
 }
-

@@ -12,7 +12,7 @@ enum APIError: Error, Equatable {
     case network(Network)
     case parse(Parse)
     case unknown
-    
+
     enum Service: Error, Equatable {
         case badRequest
         case unauthorized
@@ -24,7 +24,7 @@ enum APIError: Error, Equatable {
         case noData
         case unknown(String)
     }
-    
+
     enum Network: Error, Equatable {
         case cancelled
         case networkConnectionLost
@@ -33,7 +33,7 @@ enum APIError: Error, Equatable {
         case notConnectedToInternet
         case unknown(String)
     }
-    
+
     enum Parse: Error, Equatable {
         case typeMismatch(debugDescription: String)
         case valueNotFound(debugDescription: String)
@@ -47,11 +47,11 @@ extension APIError {
     init(_ error: HTTPURLResponse) {
         self = .service(Service(error))
     }
-    
+
     init(_ error: URLError) {
         self = .network(Network(error))
     }
-    
+
     init(_ error: DecodingError) {
         self = .parse(Parse(error))
     }
