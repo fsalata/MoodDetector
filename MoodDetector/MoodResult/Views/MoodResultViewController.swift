@@ -47,15 +47,9 @@ class MoodResultViewController: UIViewController, DataLoading {
         
         setupView()
         
-        fetchAnalysis()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+        setupSubscriptions()
         
-        if (isBeingDismissed || isMovingFromParent) {
-            subscriptions.removeAll()
-        }
+        fetchAnalysis()
     }
     
     // MARK: - Private methodss
@@ -63,7 +57,9 @@ class MoodResultViewController: UIViewController, DataLoading {
         title = MoodResultStrings.title
         
         feedbackView.delegate = self
-        
+    }
+    
+    private func setupSubscriptions() {
         viewModel.$sentiment
             .sink(receiveValue: { [weak self] result in
                 guard let self = self else { return }
@@ -73,9 +69,10 @@ class MoodResultViewController: UIViewController, DataLoading {
             .store(in: &subscriptions)
         
         viewModel.$error
+            .compactMap { $0 }
             .sink { [weak self] error in
-                guard let self = self,
-                      error != nil else { return }
+                guard let self = self else { return }
+                
                 self.showError(error)
             }
             .store(in: &subscriptions)

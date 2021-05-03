@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class MoodResultViewModel {
+final class MoodResultViewModel: ObservableObject {
     private var service: MoodService
     private var subscriptions = Set<AnyCancellable>()
     

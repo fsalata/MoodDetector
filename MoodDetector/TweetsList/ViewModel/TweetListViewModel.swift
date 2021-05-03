@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class TweetListViewModel {
+final class TweetListViewModel: ObservableObject {
     private let service: TweetListService
     private var subscriptions = Set<AnyCancellable>()
     

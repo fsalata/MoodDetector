@@ -47,6 +47,8 @@ class TweetListViewController: UIViewController, DataLoading {
         
         setupView()
         
+        setupSubscriptions()
+        
         fetchTweets()
     }
     
@@ -62,7 +64,9 @@ class TweetListViewController: UIViewController, DataLoading {
         tableView.tableFooterView = UIView()
         
         feedbackView.delegate = self
-        
+    }
+    
+    private func setupSubscriptions() {
         viewModel.$tweets
             .sink {[weak self] tweets in
                 guard let self = self else { return }
@@ -71,9 +75,9 @@ class TweetListViewController: UIViewController, DataLoading {
             .store(in: &subscriptions)
         
         viewModel.$error
+            .compactMap { $0 }
             .sink {[weak self] error in
-                guard let self = self,
-                      error != nil else { return }
+                guard let self = self else { return }
                 self.showError(error)
             }
             .store(in: &subscriptions)
