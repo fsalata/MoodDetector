@@ -14,14 +14,14 @@ protocol FeedbackViewDelegate: AnyObject {
 final class FeedbackView: UIView {
     lazy private(set) var emojiLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 120.0)
+        label.font = .systemFont(ofSize: 120.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     lazy private(set) var messageLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 14.0)
+        label.font = .systemFont(ofSize: 14.0)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
